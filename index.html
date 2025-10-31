@@ -129,22 +129,22 @@
       padding-left: 0;
       margin: 0;
     }
-    .privileges-list li, .rules-list li {
+    .privileges-list__item, .rules-list__item {
       margin-bottom: var(--space-unit);
       padding-left: calc(var(--space-unit) * 4);
       position: relative;
     }
-    .privileges-list li::before, .rules-list li::before {
+    .privileges-list__item::before, .rules-list__item::before {
       position: absolute;
       left: 0;
       top: 1px;
       font-size: 1.3em;
     }
-    .privileges-list li::before {
+    .privileges-list__item::before {
       content: '✔';
       color: var(--success-color);
     }
-    .rules-list li::before {
+    .rules-list__item::before {
       content: '→';
       color: var(--accent-color);
     }
@@ -288,19 +288,19 @@
       font-weight: 700;
       line-height: 1;
     }
-    .conditions-list li {
+    .conditions-list__item {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .conditions-list .req-label {
+    .conditions-list__label {
       color: var(--text-primary);
     }
-    .conditions-list .req-value {
+    .conditions-list__value {
       color: var(--text-secondary);
       padding-right: 5px;
     }
-    .conditions-list .separator {
+    .conditions-list__item.separator {
       justify-content: center;
       font-size: 1.2em;
       font-weight: 700;
@@ -346,7 +346,7 @@
       margin: calc(var(--space-unit) * 0.5) 0 calc(var(--space-unit) * 2) 0;
       line-height: 1.4;
     }
-.tier-table .text-right {
+    .tier-table .text-right {
       text-align: right;
       padding-right: calc(var(--space-unit) * 2);
     }
@@ -532,37 +532,37 @@
       border-radius: 0;
       background: none;
     }
-    .tier-table .tier-content table {
+    .tier-table table {
       width: 100%;
       border-collapse: collapse;
       table-layout: fixed;
     }
-    .tier-table .tier-content th, .tier-table .tier-content td {
+    .tier-table th, .tier-table td {
       text-align: left;
       padding: var(--space-unit) calc(var(--space-unit) * 1.5);
       border-bottom: 1px solid var(--border-color);
       white-space: normal;
       vertical-align: middle;
     }
-    .tier-table .tier-content th {
+    .tier-table th {
       color: var(--accent-color);
       font-size: 0.85em;
       font-weight: 700;
     }
-    .tier-table .tier-content td {
+    .tier-table td {
       color: var(--text-secondary);
     }
-    .tier-table .tier-content tbody tr:last-child td {
+    .tier-table tbody tr:last-child td {
       border-bottom: none;
     }
-    .tier-table .tier-content tbody tr:hover {
+    .tier-table tbody tr:hover {
       background-color: rgba(30, 229, 161, 0.05);
     }
-    .tier-table .tier-content .privileges-list {
+    .tier-table .privileges-list {
       white-space: normal;
       font-size: 0.95em;
     }
-    .tier-table .tier-content .privileges-list li {
+    .tier-table .privileges-list__item {
       margin-bottom: 4px;
     }
     .tier-table .col-w-25 { width: 25%; }
@@ -574,6 +574,7 @@
 
     .levels-grid-container {
       position: relative;
+      width: 100%;
     }
     .slider-arrow {
       position: absolute;
@@ -618,25 +619,11 @@
       border-radius: 3px;
       transition: width 0.1s linear;
     }
-    .levels-grid-container::before,
-    .levels-grid-container::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 30px;
-      z-index: 2;
-      pointer-events: none;
-      display: none;
-    }
-    .levels-grid-container::before {
-      left: 0;
-      background: linear-gradient(to right, rgba(20, 74, 89, 1), transparent);
-    }
-    .levels-grid-container::after {
-      right: 0;
-      background: linear-gradient(to left, rgba(20, 74, 89, 1), transparent);
-    }
+    /* 
+      КОММЕНТАРИЙ HEAD OF FRONTEND: 
+      Стили для псевдоэлементов .levels-grid-container::before и ::after были удалены 
+      по запросу, чтобы убрать градиентное затенение по краям мобильного слайдера.
+    */
 
     /* 5. ВЛОЖЕННЫЕ КОМПОНЕНТЫ */
     .nested-accordion-item {
@@ -698,8 +685,6 @@
       font-weight: bold;
     }
     @media (max-width: 767px) {
-      .levels-grid-container::before,
-      .levels-grid-container::after,
       .slider-progress,
       .slider-arrow {
           display: block;
@@ -903,7 +888,6 @@
         visibility: visible;
         transform: translateY(0);
     }
-
   </style>
 </head>
 <body>
@@ -936,54 +920,54 @@
     
     <section class="program-overview">
       <div class="hero-benefits">
-        <article class="benefit-item" tabindex="0">
+        <article class="benefit-item">
           <div class="benefit-text">
-            <strong>🚀 Up to <b class="text-highlight-success">25%</b> Daily No&nbsp;Wager&nbsp;Cashback</strong>
+            <strong>🚀 Up to <strong class="text-highlight-success">25%</strong> Daily No&nbsp;Wager&nbsp;Cashback</strong>
             <span>On all real money losses</span>
           </div>
         </article>
-        <article class="benefit-item" tabindex="0">
+        <article class="benefit-item">
           <div class="benefit-text">
-            <strong>🎁 Up to <b class="text-highlight-success">5% Extra</b> Cash&nbsp;Top-Up</strong>
+            <strong>🎁 Up to <strong class="text-highlight-success">5% Extra</strong> Cash&nbsp;Top-Up</strong>
             <span>On every deposit (1x wager)</span>
           </div>
         </article>
-        <article class="benefit-item" tabindex="0">
+        <article class="benefit-item">
           <div class="benefit-text">
-            <strong>🎯 Unparalleled <b class="text-highlight-success">VIP&nbsp;Service</b></strong>
+            <strong>🎯 Unparalleled <strong class="text-highlight-success">VIP&nbsp;Service</strong></strong>
             <span>Personal attention & real gifts</span>
           </div>
         </article>
       </div>
 
-      <div class="levels-grid-container" style="width: 100%;">
+      <div class="levels-grid-container">
         <button class="slider-arrow slider-arrow--left" aria-label="Previous tier">&lsaquo;</button>
         <div class="privileges-grid">
           <article class="card">
             <h4 class="no-line">🏆 Beginner</h4>
             <p class="tab-subtitle">Streets of Legend</p>
             <ul class="privileges-list">
-              <li>Daily Cashback</li>
-              <li>Welcome Missions & Surprises</li>
-              <li>Access to the Star Shop</li>
+              <li class="privileges-list__item">Daily Cashback</li>
+              <li class="privileges-list__item">Welcome Missions & Surprises</li>
+              <li class="privileges-list__item">Access to the Star Shop</li>
             </ul>
           </article>
           <article class="card">
             <h4 class="no-line">🚀 Frontier</h4>
             <p class="tab-subtitle">The Cosmic Frontier</p>
             <ul class="privileges-list">
-              <li>Personal VIP Manager</li>
-              <li>Wager-Free Cashback</li>
-              <li>Increased Withdrawal Limits</li>
+              <li class="privileges-list__item">Personal VIP Manager</li>
+              <li class="privileges-list__item">Wager-Free Cashback</li>
+              <li class="privileges-list__item">Increased Withdrawal Limits</li>
             </ul>
           </article>
           <article class="card">
             <h4 class="no-line">⭐ Starlord</h4>
             <p class="tab-subtitle">The Starlord's Throne</p>
             <ul class="privileges-list">
-              <li>Cash Top-Up Bonuses</li>
-              <li>Priority withdrawals</li>
-              <li>Real Gifts & Event Invitations</li>
+              <li class="privileges-list__item">Cash Top-Up Bonuses</li>
+              <li class="privileges-list__item">Priority withdrawals</li>
+              <li class="privileges-list__item">Real Gifts & Event Invitations</li>
             </ul>
           </article>
         </div>
@@ -1000,12 +984,12 @@
         <div class="levels-grid-container">
           <button class="slider-arrow slider-arrow--left" aria-label="Previous level">&lsaquo;</button>
           <div class="levels-grid">
-            <article class="card level-card" tabindex="0"><h3>Level 1: Valet</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">10%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Onboarding Mission with WP Boost</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">0+</span></li></ul></article> 
-            <article class="card level-card" tabindex="0"><h3>Level 2: Courier</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">11%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Access to Star Shop</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">100+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 3: Driver</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">12%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">400+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 4: Stuntman</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">13%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">1k+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 5: Racer</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">14%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">2k+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 6: Cadet</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">15%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">4k+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 1: Valet</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">10%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">Onboarding Mission with WP Boost</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">0+</span></li></ul></article> 
+            <article class="card level-card"><h3>Level 2: Courier</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">11%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">Access to Star Shop</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">100+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 3: Driver</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">12%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">400+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 4: Stuntman</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">13%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">1k+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 5: Racer</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">14%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">2k+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 6: Cadet</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">15%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">4k+</span></li></ul></article>
           </div>
           <button class="slider-arrow slider-arrow--right" aria-label="Next level">&rsaquo;</button>
           <div class="slider-progress"><div class="slider-progress-bar"></div></div>
@@ -1018,12 +1002,12 @@
         <div class="levels-grid-container">
           <button class="slider-arrow slider-arrow--left" aria-label="Previous level">&lsaquo;</button>
           <div class="levels-grid">
-            <article class="card level-card tier-summary"><h3><span>THE VIP:</span> Frontier</h3><p>You've left Earth's gravity behind. Here, in the cold void, the stakes are higher, and the rewards shine brighter than stars. This is VIP territory.</p><h4><span>Key Perks</span></h4><ul class="privileges-list"><li>Personal VIP Manager</li><li>Wager-Free Cashback</li><li>Increased Withdrawal Limits</li></ul><h4>Rules</h4><ul class="rules-list"><li>Must meet both WP <b class="text-highlight-success">+</b> DP requirements.</li><li>All perks from previous levels are retained.</li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 7: Scout</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">16%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>VIP support, VIP bonuses</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">5k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">500+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 8: Pilot</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">17%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Personal VIP Manager</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">10k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">1,000+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 9: Ace</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">18%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Exclusive VIP Promotions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">20k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">2,000+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 10: Captain</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">19%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Cashback without Wagering</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">40k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">4,000+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 11: Admiral</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">20%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Withdrawal limit +15%</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">60k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">6,000+</span></li></ul></article>
+            <article class="card level-card tier-summary"><h3><span>THE VIP:</span> Frontier</h3><p>You've left Earth's gravity behind. Here, in the cold void, the stakes are higher, and the rewards shine brighter than stars. This is VIP territory.</p><h4><span>Key Perks</span></h4><ul class="privileges-list"><li class="privileges-list__item">Personal VIP Manager</li><li class="privileges-list__item">Wager-Free Cashback</li><li class="privileges-list__item">Increased Withdrawal Limits</li></ul><h4>Rules</h4><ul class="rules-list"><li class="rules-list__item">Must meet both WP <span class="text-highlight-success">+</span> DP requirements.</li><li class="rules-list__item">All perks from previous levels are retained.</li></ul></article>
+            <article class="card level-card"><h3>Level 7: Scout</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">16%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">VIP support, VIP bonuses</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">5k+</span></li><li class="conditions-list__item separator"><strong>+</strong></li><li class="conditions-list__item"><span class="conditions-list__label">Deposit Points:</span> <span class="conditions-list__value">500+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 8: Pilot</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">17%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">Personal VIP Manager</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">10k+</span></li><li class="conditions-list__item separator"><strong>+</strong></li><li class="conditions-list__item"><span class="conditions-list__label">Deposit Points:</span> <span class="conditions-list__value">1,000+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 9: Ace</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">18%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">Exclusive VIP Promotions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">20k+</span></li><li class="conditions-list__item separator"><strong>+</strong></li><li class="conditions-list__item"><span class="conditions-list__label">Deposit Points:</span> <span class="conditions-list__value">2,000+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 10: Captain</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">19%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">Cashback without Wagering</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">40k+</span></li><li class="conditions-list__item separator"><strong>+</strong></li><li class="conditions-list__item"><span class="conditions-list__label">Deposit Points:</span> <span class="conditions-list__value">4,000+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 11: Admiral</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">20%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">Withdrawal limit +15%</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">60k+</span></li><li class="conditions-list__item separator"><strong>+</strong></li><li class="conditions-list__item"><span class="conditions-list__label">Deposit Points:</span> <span class="conditions-list__value">6,000+</span></li></ul></article>
           </div>
           <button class="slider-arrow slider-arrow--right" aria-label="Next level">&rsaquo;</button>
           <div class="slider-progress"><div class="slider-progress-bar"></div></div>
@@ -1036,12 +1020,12 @@
         <div class="levels-grid-container">
           <button class="slider-arrow slider-arrow--left" aria-label="Previous level">&lsaquo;</button>
           <div class="levels-grid">
-            <article class="card level-card tier-summary"><h3><span>THE ELITE:</span> Starlord</h3><p>You don't just play by the rules. You create them. The universe revolves around you. You are a STARLORD. Your every wish is command.</p><h4><span>Key Perks</span></h4><ul class="privileges-list"><li>Cash Top-Up Bonuses</li><li>Priority Withdrawals</li><li>Real Gifts & VIP Event Invitations</li></ul><h4><span>Rules</span></h4><ul class="rules-list"><li>Progressive bonuses (Top-Up, limits) are replaced, not cumulative.</li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 12: Consul</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">21%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>+1% Top-Up bonus</li><li>Withdrawal limit +25%</li><li>Expedited withdrawals</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">100k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">10k+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 13: Baron</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">22%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>+2% Top-Up bonus</li><li>Withdrawal limit +50%</li><li>Personalized Financial Manager</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">150k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">15k+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 14: Duke</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">23%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>+3% Top-Up bonus</li><li>Withdrawal limit +75%</li><li>Real gifts (gadgets, etc.)</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">300k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">30k+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 15: Regent</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">24%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>+4% Top-Up bonus</li><li>Withdrawal limit +100%</li><li>Priority withdrawals</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">500k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">50k+</span></li></ul></article>
-            <article class="card level-card" tabindex="0"><h3>Level 16: Sovereign</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">25%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>+5% Top-Up bonus</li><li>Invitations to elite events</li><li>Personalized Conditions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">1M+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">100k+</span></li></ul></article>
+            <article class="card level-card tier-summary"><h3><span>THE ELITE:</span> Starlord</h3><p>You don't just play by the rules. You create them. The universe revolves around you. You are a STARLORD. Your every wish is command.</p><h4><span>Key Perks</span></h4><ul class="privileges-list"><li class="privileges-list__item">Cash Top-Up Bonuses</li><li class="privileges-list__item">Priority Withdrawals</li><li class="privileges-list__item">Real Gifts & VIP Event Invitations</li></ul><h4><span>Rules</span></h4><ul class="rules-list"><li class="rules-list__item">Progressive bonuses (Top-Up, limits) are replaced, not cumulative.</li></ul></article>
+            <article class="card level-card"><h3>Level 12: Consul</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">21%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">+1% Top-Up bonus</li><li class="privileges-list__item">Withdrawal limit +25%</li><li class="privileges-list__item">Expedited withdrawals</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">100k+</span></li><li class="conditions-list__item separator"><strong>+</strong></li><li class="conditions-list__item"><span class="conditions-list__label">Deposit Points:</span> <span class="conditions-list__value">10k+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 13: Baron</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">22%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">+2% Top-Up bonus</li><li class="privileges-list__item">Withdrawal limit +50%</li><li class="privileges-list__item">Personalized Financial Manager</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">150k+</span></li><li class="conditions-list__item separator"><strong>+</strong></li><li class="conditions-list__item"><span class="conditions-list__label">Deposit Points:</span> <span class="conditions-list__value">15k+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 14: Duke</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">23%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">+3% Top-Up bonus</li><li class="privileges-list__item">Withdrawal limit +75%</li><li class="privileges-list__item">Real gifts (gadgets, etc.)</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">300k+</span></li><li class="conditions-list__item separator"><strong>+</strong></li><li class="conditions-list__item"><span class="conditions-list__label">Deposit Points:</span> <span class="conditions-list__value">30k+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 15: Regent</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">24%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">+4% Top-Up bonus</li><li class="privileges-list__item">Withdrawal limit +100%</li><li class="privileges-list__item">Priority withdrawals</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">500k+</span></li><li class="conditions-list__item separator"><strong>+</strong></li><li class="conditions-list__item"><span class="conditions-list__label">Deposit Points:</span> <span class="conditions-list__value">50k+</span></li></ul></article>
+            <article class="card level-card"><h3>Level 16: Sovereign</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">25%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li class="privileges-list__item">+5% Top-Up bonus</li><li class="privileges-list__item">Invitations to elite events</li><li class="privileges-list__item">Personalized Conditions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li class="conditions-list__item"><span class="conditions-list__label">Wager Points:</span> <span class="conditions-list__value">1M+</span></li><li class="conditions-list__item separator"><strong>+</strong></li><li class="conditions-list__item"><span class="conditions-list__label">Deposit Points:</span> <span class="conditions-list__value">100k+</span></li></ul></article>
           </div>
           <button class="slider-arrow slider-arrow--right" aria-label="Next level">&rsaquo;</button>
           <div class="slider-progress"><div class="slider-progress-bar"></div></div>
@@ -1061,14 +1045,14 @@
             <div class="tier-content">
               <div class="table-wrapper">
                 <table>
-                  <thead><tr><th class="col-w-25">Status</th><th class="col-w-40">Privileges</th><th class="col-w-15">Cash<br>back</th><th class="col-w-20">WP Req.</th></tr></thead>
+                  <thead><tr><th scope="col" class="col-w-25">Status</th><th scope="col" class="col-w-40">Privileges</th><th scope="col" class="col-w-15">Cash<br>back</th><th scope="col" class="col-w-20">WP Req.</th></tr></thead>
                   <tbody>
-                    <tr><td>1. Valet</td><td><ul class="privileges-list"><li>Onboarding Mission with WP Boost</li></ul></td><td>10%</td><td>0+</td></tr>
-                    <tr><td>2. Courier</td><td><ul class="privileges-list"><li>Access to Star Shop</li></ul></td><td>11%</td><td>100+</td></tr>
-                    <tr><td>3. Driver</td><td><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul></td><td>12%</td><td>400+</td></tr>
-                    <tr><td>4. Stuntman</td><td><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul></td><td>13%</td><td>1k+</td></tr>
-                    <tr><td>5. Racer</td><td><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul></td><td>14%</td><td>2k+</td></tr>
-                    <tr><td>6. Cadet</td><td><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul></td><td>15%</td><td>4k+</td></tr>
+                    <tr><td>1. Valet</td><td><ul class="privileges-list"><li class="privileges-list__item">Onboarding Mission with WP Boost</li></ul></td><td>10%</td><td>0+</td></tr>
+                    <tr><td>2. Courier</td><td><ul class="privileges-list"><li class="privileges-list__item">Access to Star Shop</li></ul></td><td>11%</td><td>100+</td></tr>
+                    <tr><td>3. Driver</td><td><ul class="privileges-list"><li class="privileges-list__item">Surprise Reward & New Missions</li></ul></td><td>12%</td><td>400+</td></tr>
+                    <tr><td>4. Stuntman</td><td><ul class="privileges-list"><li class="privileges-list__item">Surprise Reward & New Missions</li></ul></td><td>13%</td><td>1k+</td></tr>
+                    <tr><td>5. Racer</td><td><ul class="privileges-list"><li class="privileges-list__item">Surprise Reward & New Missions</li></ul></td><td>14%</td><td>2k+</td></tr>
+                    <tr><td>6. Cadet</td><td><ul class="privileges-list"><li class="privileges-list__item">Surprise Reward & New Missions</li></ul></td><td>15%</td><td>4k+</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1083,13 +1067,13 @@
             <div class="tier-content">
               <div class="table-wrapper">
                 <table>
-                  <thead><tr><th class="col-w-20">Status</th><th class="col-w-30">Privileges</th><th class="col-w-10">Cash<br>back</th><th class="col-w-20">WP Req.</th><th class="col-w-20">DP Req.</th></tr></thead>
+                  <thead><tr><th scope="col" class="col-w-20">Status</th><th scope="col" class="col-w-30">Privileges</th><th scope="col" class="col-w-10">Cash<br>back</th><th scope="col" class="col-w-20">WP Req.</th><th scope="col" class="col-w-20">DP Req.</th></tr></thead>
                   <tbody>
-                    <tr><td>7. Scout</td><td><ul class="privileges-list"><li>VIP support, VIP bonuses</li></ul></td><td>16%</td><td>5k+</td><td>500+</td></tr>
-                    <tr><td>8. Pilot</td><td><ul class="privileges-list"><li>Personal VIP Manager</li></ul></td><td>17%</td><td>10k+</td><td>1,000+</td></tr>
-                    <tr><td>9. Ace</td><td><ul class="privileges-list"><li>Exclusive VIP Promotions</li></ul></td><td>18%</td><td>20k+</td><td>2,000+</td></tr>
-                    <tr><td>10. Captain</td><td><ul class="privileges-list"><li>Cashback without Wagering</li></ul></td><td>19%</td><td>40k+</td><td>4,000+</td></tr>
-                    <tr><td>11. Admiral</td><td><ul class="privileges-list"><li>Withdrawal limit +15%</li></ul></td><td>20%</td><td>60k+</td><td>6,000+</td></tr>
+                    <tr><td>7. Scout</td><td><ul class="privileges-list"><li class="privileges-list__item">VIP support, VIP bonuses</li></ul></td><td>16%</td><td>5k+</td><td>500+</td></tr>
+                    <tr><td>8. Pilot</td><td><ul class="privileges-list"><li class="privileges-list__item">Personal VIP Manager</li></ul></td><td>17%</td><td>10k+</td><td>1,000+</td></tr>
+                    <tr><td>9. Ace</td><td><ul class="privileges-list"><li class="privileges-list__item">Exclusive VIP Promotions</li></ul></td><td>18%</td><td>20k+</td><td>2,000+</td></tr>
+                    <tr><td>10. Captain</td><td><ul class="privileges-list"><li class="privileges-list__item">Cashback without Wagering</li></ul></td><td>19%</td><td>40k+</td><td>4,000+</td></tr>
+                    <tr><td>11. Admiral</td><td><ul class="privileges-list"><li class="privileges-list__item">Withdrawal limit +15%</li></ul></td><td>20%</td><td>60k+</td><td>6,000+</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1104,13 +1088,13 @@
             <div class="tier-content">
               <div class="table-wrapper">
                 <table>
-                  <thead><tr><th class="col-w-20">Status</th><th class="col-w-30">Privileges</th><th class="col-w-10">Cash<br>back</th><th class="col-w-20">WP Req.</th><th class="col-w-20">DP Req.</th></tr></thead>
+                  <thead><tr><th scope="col" class="col-w-20">Status</th><th scope="col" class="col-w-30">Privileges</th><th scope="col" class="col-w-10">Cash<br>back</th><th scope="col" class="col-w-20">WP Req.</th><th scope="col" class="col-w-20">DP Req.</th></tr></thead>
                   <tbody>
-                    <tr><td>12. Consul</td><td><ul class="privileges-list"><li>+1% Top-Up bonus</li><li>Withdrawal limit +25%</li><li>Expedited withdrawals</li></ul></td><td>21%</td><td>100k+</td><td>10k+</td></tr>
-                    <tr><td>13. Baron</td><td><ul class="privileges-list"><li>+2% Top-Up bonus</li><li>Withdrawal limit +50%</li><li>Personalized Financial Manager</li></ul></td><td>22%</td><td>150k+</td><td>15k+</td></tr>
-                    <tr><td>14. Duke</td><td><ul class="privileges-list"><li>+3% Top-Up bonus</li><li>Withdrawal limit +75%</li><li>Real gifts (gadgets, etc.)</li></ul></td><td>23%</td><td>300k+</td><td>30k+</td></tr>
-                    <tr><td>15. Regent</td><td><ul class="privileges-list"><li>+4% Top-Up bonus</li><li>Withdrawal limit +100%</li><li>Priority withdrawals</li></ul></td><td>24%</td><td>500k+</td><td>50k+</td></tr>
-                    <tr><td>16. Sovereign</td><td><ul class="privileges-list"><li>+5% Top-Up bonus</li><li>Invitations to elite events</li><li>Personalized Conditions</li></ul></td><td>25%</td><td>1M+</td><td>100k+</td></tr>
+                    <tr><td>12. Consul</td><td><ul class="privileges-list"><li class="privileges-list__item">+1% Top-Up bonus</li><li class="privileges-list__item">Withdrawal limit +25%</li><li class="privileges-list__item">Expedited withdrawals</li></ul></td><td>21%</td><td>100k+</td><td>10k+</td></tr>
+                    <tr><td>13. Baron</td><td><ul class="privileges-list"><li class="privileges-list__item">+2% Top-Up bonus</li><li class="privileges-list__item">Withdrawal limit +50%</li><li class="privileges-list__item">Personalized Financial Manager</li></ul></td><td>22%</td><td>150k+</td><td>15k+</td></tr>
+                    <tr><td>14. Duke</td><td><ul class="privileges-list"><li class="privileges-list__item">+3% Top-Up bonus</li><li class="privileges-list__item">Withdrawal limit +75%</li><li class="privileges-list__item">Real gifts (gadgets, etc.)</li></ul></td><td>23%</td><td>300k+</td><td>30k+</td></tr>
+                    <tr><td>15. Regent</td><td><ul class="privileges-list"><li class="privileges-list__item">+4% Top-Up bonus</li><li class="privileges-list__item">Withdrawal limit +100%</li><li class="privileges-list__item">Priority withdrawals</li></ul></td><td>24%</td><td>500k+</td><td>50k+</td></tr>
+                    <tr><td>16. Sovereign</td><td><ul class="privileges-list"><li class="privileges-list__item">+5% Top-Up bonus</li><li class="privileges-list__item">Invitations to elite events</li><li class="privileges-list__item">Personalized Conditions</li></ul></td><td>25%</td><td>1M+</td><td>100k+</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -1124,9 +1108,9 @@
       <div class="collapsible-content">
         <p>This isn't a loyalty program. It's your personal saga — a journey from a daring racer on neon-lit streets to a ruler whose name echoes across the galaxy. Every spin is a step toward the throne. Every bet is a new chapter in your story.</p>
         <div class="tier-table story-accordion-container">
-          <details class="tier-item"><summary><b>🏆 Beginner: Streets of Legend</b></summary><div class="collapsible-content" style="padding-top:0"><h4><span>Levels 1-6</span></h4><ul class="rules-list"><li><b>Valet:</b> You're trusted with the keys to the fast machines, standing at the door to the world of high rollers.</li><li><b>Courier:</b> You execute high-stakes missions, delivering wins with surgical precision.</li><li><b>Driver:</b> You're behind the wheel of your own luck. Full control, zero doubts.</li><li><b>Stuntman:</b> Forget the rules of the road. You live for high-risk stunts, turning impossible odds into legendary payouts.</li><li><b>Racer:</b> Your name is a synonym for speed. A legend of the streets, the king of the finish line.</li><li><b>Cadet:</b> The streets are conquered. You've been noticed. Prepare for liftoff into the major leagues.</li></ul></div></details>
-          <details class="tier-item"><summary><b>🚀 Frontier: The Cosmic Frontier</b></summary><div class="collapsible-content" style="padding-top:0"><h4><span>Levels 7-11</span></h4><p>You've left Earth's gravity behind. Here, in the cold void, the stakes are higher, and the rewards shine brighter than stars. This is VIP territory.</p><ul class="rules-list"><li><b>Scout:</b> You're charting new routes to galaxies of wins.</li><li><b>Pilot:</b> You are the commander of your starship of fortune, confidently navigating through meteor showers of bonuses.</li><li><b>Ace:</b> One precise shot, and the pot is yours. You are a weapon of victory.</li><li><b>Captain:</b> You don't just command a ship; you command a strategy. Your bankroll is your fleet.</li><li><b>Admiral:</b> An entire armada answers to your command. You conduct a symphony of victory.</li></ul></div></details>
-          <details class="tier-item"><summary><b>⭐ Starlord: The Starlord's Throne</b></summary><div class="collapsible-content" style="padding-top:0"><h4><span>Levels 12-16</span></h4><p>You don't just play by the rules. You create them. The universe revolves around you. You are a STARLORD. Your every wish is command.</p><ul class="rules-list"><li><b>Consul:</b> Your word influences the game itself. You are the éminence grise of the galaxy.</li><li><b>Baron:</b> Your domain, your privileges. You collect tribute from every spin.</li><li><b>Duke:</b> Entire sectors of bonuses and exclusive rewards are under your control.</li><li><b>Regent:</b> A direct line to the throne. Your every desire is fulfilled instantly.</li><li><b>Sovereign:</b> Absolute power. Infinite recognition. Your legend is eternal.</li></ul></div></details>
+          <details class="tier-item"><summary><b>🏆 Beginner: Streets of Legend</b></summary><div class="collapsible-content" style="padding-top:0"><h4><span>Levels 1-6</span></h4><ul class="rules-list"><li class="rules-list__item"><b>Valet:</b> You're trusted with the keys to the fast machines, standing at the door to the world of high rollers.</li><li class="rules-list__item"><b>Courier:</b> You execute high-stakes missions, delivering wins with surgical precision.</li><li class="rules-list__item"><b>Driver:</b> You're behind the wheel of your own luck. Full control, zero doubts.</li><li class="rules-list__item"><b>Stuntman:</b> Forget the rules of the road. You live for high-risk stunts, turning impossible odds into legendary payouts.</li><li class="rules-list__item"><b>Racer:</b> Your name is a synonym for speed. A legend of the streets, the king of the finish line.</li><li class="rules-list__item"><b>Cadet:</b> The streets are conquered. You've been noticed. Prepare for liftoff into the major leagues.</li></ul></div></details>
+          <details class="tier-item"><summary><b>🚀 Frontier: The Cosmic Frontier</b></summary><div class="collapsible-content" style="padding-top:0"><h4><span>Levels 7-11</span></h4><p>You've left Earth's gravity behind. Here, in the cold void, the stakes are higher, and the rewards shine brighter than stars. This is VIP territory.</p><ul class="rules-list"><li class="rules-list__item"><b>Scout:</b> You're charting new routes to galaxies of wins.</li><li class="rules-list__item"><b>Pilot:</b> You are the commander of your starship of fortune, confidently navigating through meteor showers of bonuses.</li><li class="rules-list__item"><b>Ace:</b> One precise shot, and the pot is yours. You are a weapon of victory.</li><li class="rules-list__item"><b>Captain:</b> You don't just command a ship; you command a strategy. Your bankroll is your fleet.</li><li class="rules-list__item"><b>Admiral:</b> An entire armada answers to your command. You conduct a symphony of victory.</li></ul></div></details>
+          <details class="tier-item"><summary><b>⭐ Starlord: The Starlord's Throne</b></summary><div class="collapsible-content" style="padding-top:0"><h4><span>Levels 12-16</span></h4><p>You don't just play by the rules. You create them. The universe revolves around you. You are a STARLORD. Your every wish is command.</p><ul class="rules-list"><li class="rules-list__item"><b>Consul:</b> Your word influences the game itself. You are the éminence grise of the galaxy.</li><li class="rules-list__item"><b>Baron:</b> Your domain, your privileges. You collect tribute from every spin.</li><li class="rules-list__item"><b>Duke:</b> Entire sectors of bonuses and exclusive rewards are under your control.</li><li class="rules-list__item"><b>Regent:</b> A direct line to the throne. Your every desire is fulfilled instantly.</li><li class="rules-list__item"><b>Sovereign:</b> Absolute power. Infinite recognition. Your legend is eternal.</li></ul></div></details>
         </div>
       </div>
     </details>
@@ -1135,7 +1119,7 @@
       <summary><h3>⚙️ Control <span>Panel</span></h3></summary>
       <div class="collapsible-content">
         <div class="info-grid">
-          <article class="card" aria-labelledby="cb-title" tabindex="0">
+          <article class="card" aria-labelledby="cb-title">
             <h3 id="cb-title" class="info-card__title">Cashback (CB)</h3>
             <p>Cashback is credited daily at 09:00 CET and is calculated based on net real-money loss from the previous day. You receive based on your level up to 25% cashback.</p>
             <details class="info-example collapsible-item">
@@ -1145,55 +1129,55 @@
                 <p><strong>(Previous Day): Total Deposits – Total Withdrawals – Current Balance</strong></p>
                 <h4 class="no-line">Rules</h4>
                 <ul class="rules-list">
-                  <li><strong>Min. CB: 3€</strong></li>
-                  <li><strong>Max. CB: 25% of daily deposits</strong></li>
-                  <li><strong>Max. win: credited CB ×10</strong></li>
-                  <li><strong>Wager: credited CB ×3</strong><br><em>(From level 10 and above, cashback is fully wager-free.)</em></li>
-                  <li><strong>Top-Up bonuses are excluded</strong> from cashback calculation.</li>
+                  <li class="rules-list__item"><strong>Min. CB: 3€</strong></li>
+                  <li class="rules-list__item"><strong>Max. CB: 25% of daily deposits</strong></li>
+                  <li class="rules-list__item"><strong>Max. win: credited CB ×10</strong></li>
+                  <li class="rules-list__item"><strong>Wager: credited CB ×3</strong><br><em>(From level 10 and above, cashback is fully wager-free.)</em></li>
+                  <li class="rules-list__item"><strong>Top-Up bonuses are excluded</strong> from cashback calculation.</li>
                 </ul>
               </div>
             </details>
           </article>
-          <article class="card" aria-labelledby="topup-title" tabindex="0">
+          <article class="card" aria-labelledby="topup-title">
             <h3 id="topup-title" class="info-card__title">Top-Up Bonus</h3>
             <p>From Starlord level onward, you receive an automatic Top-Up boost on every deposit, increasing the amount you receive based on your status — between 1% and 5%.</p>
             <details class="info-example collapsible-item">
               <summary>How it works & Example</summary>
               <div class="collapsible-content" style="padding:0 calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 1.5);">
                  <ul class="rules-list" style="padding-left: 0; margin-top: 8px;">
-                  <li>Consul (+1%), Baron (+2%), Duke (+3%), Regent (+4%), Sovereign (+5%)</li>
+                  <li class="rules-list__item">Consul (+1%), Baron (+2%), Duke (+3%), Regent (+4%), Sovereign (+5%)</li>
                 </ul>
                 <ul class="privileges-list">
-                  <li>No activation needed — the boost is automatic.</li>
-                  <li>Comes with a minimal 1× wagering requirement.</li>
+                  <li class="privileges-list__item">No activation needed — the boost is automatic.</li>
+                  <li class="privileges-list__item">Comes with a minimal 1× wagering requirement.</li>
                 </ul>
                 <h4 class="no-line">Example</h4>
                 <p>At <strong>Sovereign</strong> status, depositing <strong>1,000€</strong> gives you an extra <strong>50€</strong> Cash Bonus instantly.</p>
               </div>
             </details>
           </article>
-          <article class="card" aria-labelledby="wp-title" tabindex="0">
+          <article class="card" aria-labelledby="wp-title">
             <h3 id="wp-title" class="info-card__title">Wager Points (WP)</h3>
             <p>The Fuel for Your Race. WP determine your status in the loyalty program. The more you collect, the higher your permanent cashback percentage.</p>
             <details class="info-example collapsible-item">
               <summary>How to Earn WPs</summary>
               <div class="collapsible-content" style="padding:0 calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 1.5);">
                 <ul class="privileges-list">
-                  <li>Slots: <strong>1 WP</strong> per <strong>€50</strong> wagered <small>(≈ 5€ deposit)</small></li>
-                  <li>Other Games: <strong>1 WP</strong> per <strong>€100</strong> wagered <small>(≈ 10€ deposit)</small></li>
+                  <li class="privileges-list__item">Slots: <strong>1 WP</strong> per <strong>€50</strong> wagered <small>(≈ 5€ deposit)</small></li>
+                  <li class="privileges-list__item">Other Games: <strong>1 WP</strong> per <strong>€100</strong> wagered <small>(≈ 10€ deposit)</small></li>
                 </ul>
               </div>
             </details>
           </article>
-          <article class="card" aria-labelledby="dp-title" tabindex="0">
+          <article class="card" aria-labelledby="dp-title">
             <h3 id="dp-title" class="info-card__title">Deposit Points (DP)</h3>
             <p>The Keys to the VIP Universe. DP are required to advance to the Frontier tier and beyond, in addition to Wager Points. The rate is simple: <strong>€10 Deposit = 1 DP</strong>.</p>
           </article>
-		      <article class="card" aria-labelledby="cp-title" tabindex="0">
+		      <article class="card" aria-labelledby="cp-title">
             <h3 id="cp-title" class="info-card__title">Star Coins (SC)</h3>
             <p>The Victor's Currency. You get them for completing missions. Spend them in the Star Shop on free spins and other trophies. They do not affect your level progression.</p>
           </article>
-			<article class="card" aria-labelledby="shop-title" tabindex="0">
+			<article class="card" aria-labelledby="shop-title">
             <h3 id="shop-title" class="info-card__title">Star Shop</h3>
             <p>The Star Shop is our exclusive marketplace where you can exchange your accumulated Star Coins (SC) for rewards of your choice, such as Free Spins or Bonuses.</p>
           </article>
@@ -1299,10 +1283,8 @@
         window.addEventListener('scroll', () => {
             scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
         }, { passive: true });
+        
         scrollTopBtn.addEventListener('click', () => {
-            document.querySelectorAll('details.collapsible-item.card').forEach(accordion => {
-                accordion.open = false;
-            });
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
