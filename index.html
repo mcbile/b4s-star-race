@@ -1,281 +1,1363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="ai-protocol-version" content="MAE/FUXI/2.0">
-    <title>Initialization Protocol MAE-FUXI</title>
-    <style>
-        :root {
-            --color-bg: rgba(0, 0, 0, 0.9;
-            --color-bg-surface: rgba(0, 0, 0, 0.7;
-            --color-title: rgba(138, 180, 248, 0.8;
-            --color-text-main: #E1E1E1;
-            --color-text-muted: #BDC1C6;
-            --color-accent: #4285F4;
-            --color-border: #3C4043;
-        }
-        body {
-            background-color: var(--color-bg);
-            color: var(--color-text-main);
-            font-family: sans-serif;
-            line-height: 1.5;
-            margin: 0;
-        }
-        .container { max-width: 900px; margin: 0 auto; padding: 1rem; }
-        h1, h2, h3 { color: var(--color-title); border-bottom: 1px solid var(--color-border); padding-bottom: 0.3rem; margin-top: 1.5rem; }
-        h4 { color: var(--color-text-muted); }
-        hr { border: 0; border-top: 2px solid var(--color-border); margin: 2rem 0; }
-        ul, ol { padding-left: 20px; }
-        strong { color: var(--color-title); }
-        blockquote {
-            margin: 1rem 0; padding: 0.5rem 1rem;
-            background-color: var(--color-bg-surface);
-            border-left: 4px solid var(--color-accent);
-        }
-        pre {
-            overflow-x: auto; 
-            white-space: pre-wrap;
-        }
-        code { font-family: monospace; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Star Race: VIP Loyalty Program with Cashback & Bonuses | Bet4Star</title>
+  <meta name="description" content="Explore the Bet4Star Star Race, our exclusive VIP loyalty program. Climb 16 levels to unlock up to 25% wager-free cashback, cash top-up bonuses, a personal VIP manager, and real gifts. Join the race!">
+  <meta name="keywords" content="VIP program, loyalty rewards, casino cashback, wager-free bonus, online casino VIP, deposit bonus, loyalty levels, Bet4Star, Star Race">
+  
+  <style>
+    @keyframes nebula-drift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    :root {
+      --bg-color: transparent;
+      --card-bg-color:#111A21;
+      --card-bg-nested-color: rgba(7, 13, 17, 0.9);
+      --border-color: #2C3A44;
+      --card-border-color-default: #2C3A44;
+      --accent-color: #1EE5A1;
+      --accent-color-hover: #68FFC8;
+      --text-primary: #FFFFFF;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --success-color: #1EE5A1;
+      --success-light-color: #68FFC8;
+      --danger-color: #D8294D;
+      --new-color: #FFFFFF;
+      --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --radius-main: 12px;
+      --radius-small: 6px;
+      --space-unit: 8px;
+    }
+
+    /* 1. БАЗОВЫЕ СТИЛИ И ТИПОГРАФИКА */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: linear-gradient(270deg, #0A131A, #144A59, #231E4D, #0A131A);
+      background-size: 400% 400%;
+      animation: nebula-drift 30s ease infinite;
+    }
+    body.menu-open {
+      overflow: hidden;
+    }
+    .container {
+      padding: calc(var(--space-unit) * 3) calc(var(--space-unit) * 2);
+    }
+    h1, h2, h3, h4 {
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 {
+      font-weight: 700;
+    }
+    h4 {
+      font-weight: 600;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+    h1 span {
+      color: var(--accent-color);
+    }
+    h2 {
+      font-size: 2em;
+      color: var(--accent-color);
+      text-align: center;
+      letter-spacing: 0.05em;
+      margin: 0 0 calc(var(--space-unit) * 5) 0;
+    }
+    h3 {
+      font-size: 1.4em;
+      margin: 0 0 calc(var(--space-unit) * 1.5) 0;
+    }
+    h4 {
+      font-size: 1em;
+      color: var(--text-secondary);
+      margin: calc(var(--space-unit) * 2) 0 0.15em 0;
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+      gap: calc(var(--space-unit) * 2);
+    }
+    h4.no-line {
+      display: block;
+      margin: 0;
+    }
+    h4 > span {
+      margin: calc(var(--space-unit) * 1.5) 0 0.15em 0;
+      flex-shrink: 0;
+    }
+    h4:not(.no-line)::after {
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: var(--border-color);
+    }
+    p {
+      margin: 0 0 1em 0;
+      color: var(--text-secondary);
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+    .text-highlight-success {
+      color: var(--success-color);
+    }
+    hr {
+      border: none;
+      height: 1px;
+      background-image: linear-gradient(to right, transparent, var(--border-color), transparent);
+      margin: calc(var(--space-unit) * 5) 0;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .privileges-list li, .rules-list li {
+      margin-bottom: var(--space-unit);
+      padding-left: calc(var(--space-unit) * 4);
+      position: relative;
+    }
+    .privileges-list li::before, .rules-list li::before {
+      position: absolute;
+      left: 0;
+      top: 1px;
+      font-size: 1.3em;
+    }
+    .privileges-list li::before {
+      content: '✔';
+      color: var(--success-color);
+    }
+    .rules-list li::before {
+      content: '→';
+      color: var(--accent-color);
+    }
+    :focus-visible {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 3px;
+        border-radius: var(--radius-small);
+    }
+    .collapsible-item summary:focus-visible {
+        outline-offset: 6px;
+    }
+    .main-nav a:focus-visible {
+        outline-color: var(--accent-color-hover);
+    }
+
+    /* 2. ОСНОВНЫЕ КОМПОНЕНТЫ (HEADER, CARD, BUTTON) */
+    .page-header {
+      margin-bottom: calc(var(--space-unit) * 5);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page-subtitle {
+      font-size: 1.1em;
+      color: var(--new-color);
+      max-width: 600px;
+      margin: var(--space-unit) 0 calc(var(--space-unit) * 4) 0;
+    }
+    .card {
+      background-color: var(--card-bg-color);
+      border: 1px solid var(--card-border-color-default);
+      border-radius: var(--radius-main);
+      padding: calc(var(--space-unit) * 3);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .program-overview {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--space-unit) * 4);
+      margin-top: calc(var(--space-unit) * 4);
+    }
+    button.card {
+        padding: calc(var(--space-unit) * 3);
+        font-family: inherit;
+        color: inherit;
+        text-align: left;
+        cursor: pointer;
+        width: 100%;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: var(--card-bg-color);
+      padding: calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 4);
+      border-radius: var(--radius-small);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .cta-button:hover,
+    .cta-button:focus-visible {
+      background-color: var(--accent-color-hover);
+      transform: scale(1.05);
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+    @keyframes pulse {
+      50% {
+        transform: scale(1.1);
+      }
+    }
+    .hero-cta {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* 3. СПЕЦИФИЧНЫЕ КОМПОНЕНТЫ И СЕТКИ */
+    .levels-grid, .privileges-grid, .info-grid {
+      display: grid;
+      gap: calc(var(--space-unit) * 3);
+      grid-template-columns: 1fr;
+    }
+    .hero-benefits {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: calc(var(--space-unit) * 2);
+      width: 100%;
+      margin: 0;
+    }
+    .benefit-item {
+      background-color: var(--card-bg-color);
+      border: 1px solid var(--card-border-color-default);
+      border-radius: var(--radius-main);
+      padding: calc(var(--space-unit) * 2);
+      display: flex;
+      align-items: center;
+      gap: calc(var(--space-unit) * 2);
+      text-align: left;
+    }
+    .benefit-text {
+      width: 100%;
+      text-align: center;
+    }
+    .benefit-text strong {
+      display: block;
+      font-size: 1.2em;
+      color: var(--new-color);
+      line-height: 1.2;
+      text-transform: none;
+    }
+    .benefit-text span {
+      color: var(--text-secondary);
+      font-size: 0.9em;
+      text-transform: none;
+    }
+    .cashback-block {
+      background-color: var(--accent-color);
+      color: #0A131A;
+      padding: var(--space-unit) calc(var(--space-unit) * 2);
+      border-radius: var(--radius-main);
+      text-align: center;
+      margin-bottom: calc(var(--space-unit) * 2);
+    }
+    .cashback-block .label {
+      font-size: 0.9em;
+      text-transform: uppercase;
+      font-weight: 700;
+      opacity: 0.8;
+    }
+    .cashback-block .value {
+      font-size: 2.4em;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .conditions-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .conditions-list .req-label {
+      color: var(--text-primary);
+    }
+    .conditions-list .req-value {
+      color: var(--text-secondary);
+      padding-right: 5px;
+    }
+    .conditions-list .separator {
+      justify-content: center;
+      font-size: 1.2em;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin: 0;
+    }
+    .tier-summary {
+      border-color: var(--accent-color-hover);
+      background: linear-gradient(145deg, var(--card-bg-color), rgba(13, 25, 33, 0.85));
+    }
+    .tier-summary h3 {
+      color: var(--new-color);
+    }
+    .tier-summary h3 span {
+      color: var(--accent-color);
+      margin-right: var(--space-unit);
+    }
+    .info-card__title {
+      color: var(--new-color);
+    }
+    .info-example p {
+      color: var(--new-color);
+    }
+    .info-example p strong {
+      font-weight: 700;
+    }
+    .privileges-grid .card h4.no-line {
+      display: block;
+      color: var(--new-color);
+      margin: 0;
+      gap: 0;
+      font-size: 1.2em;
+    }
+    .privileges-grid .card h4.no-line::after {
+      content: none;
+    }
+    .tab-subtitle {
+      color: var(--text-secondary);
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1em;
+      text-transform: none;
+      margin: calc(var(--space-unit) * 0.5) 0 calc(var(--space-unit) * 2) 0;
+      line-height: 1.4;
+    }
+
+    /* 4. АККОРДЕОНЫ, ТАБЛИЦЫ И СЛАЙДЕРЫ */
+    .accordion-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--space-unit) * 3);
+    }
+    .accordion-wrapper > .card {
+        padding: 0;
+        background-color: transparent;
+    }
+    .collapsible-item.card {
+      border-width: 1px;
+    }
+    .collapsible-item.card {
+      background-color: var(--card-bg-nested-color);
+    }
+    .collapsible-item summary {
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      padding: calc(var(--space-unit) * 3);
+    }
+    .collapsible-item.card > summary {
+        background-color: var(--card-bg-color);
+        border-radius: var(--radius-main);
+        transition: border-radius 0.2s ease;
+        backdrop-filter: blur(10px);
+       -webkit-backdrop-filter: blur(10px);
+    }
+    .collapsible-item.card[open] > summary {
+        border-bottom: 1px solid var(--border-color);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .collapsible-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .collapsible-item summary::after {
+      content: '+';
+      position: absolute;
+      right: calc(var(--space-unit) * 3);
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5em;
+      line-height: 1;
+      color: var(--accent-color);
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .collapsible-item[open] > summary::after {
+      transform: translateY(-50%) rotate(45deg);
+      color: var(--danger-color);
+    }
+    .collapsible-item .collapsible-content {
+      padding: calc(var(--space-unit) * 3);
+      color: var(--text-secondary);
+      text-transform: none;
+    }
+    .collapsible-item.card > .collapsible-content {
+      padding-top: calc(var(--space-unit) * 3);
+    }
+    .collapsible-item summary h3 {
+        margin: 0;
+        font-size: 1.5em;
+        font-weight: 700;
+        line-height: 1.3;
+        text-transform: uppercase;
+        color: var(--text-primary);
+        transition: color 0.2s ease;
+    }
+    .collapsible-item summary span {
+      color: var(--accent-color);
+    }
+    .collapsible-content h2,
+    .collapsible-content h3,
+    .collapsible-content h4:not(.no-line) {
+      color: var(--new-color);
+      border-bottom: none;
+      margin-top: 0;
+      text-align: left;
+    }
+    .collapsible-item.card > summary:hover h3 {
+      color: var(--accent-color);
+    }
+    .info-example {
+      margin-top: calc(var(--space-unit) * 2.5);
+      padding: calc(var(--space-unit) * 2.5);
+      border-left: 4px solid var(--accent-color);
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 0 var(--radius-small) var(--radius-small) 0;
+    }
+    .info-example summary {
+      margin: -20px -20px 0 -24px;
+      padding: 20px 30px 20px 24px;
+      font-size: 1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .info-example[open] > summary {
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: calc(var(--space-unit) * 1.5);
+    }
+    .info-example .no-line {
+      margin-top: calc(var(--space-unit) * 2);
+      margin-bottom: 1.15em;
+    }
+    .info-example > *:not(summary) {
+      margin-top: 0;
+    }
+    .story-accordion-container {
+      padding: 0;
+      border: none;
+      background: none;
+      box-shadow: none;
+    }
+    .story-accordion-container h4 {
+      margin-bottom: 0.5em;
+    }
+    .story-accordion-container .tier-item summary {
+      font-size: calc(1.1em + 2px);
+      font-weight: 700;
+    }
+    .tier-table {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-main);
+      overflow: hidden;
+    }
+    .tier-table .tier-item {
+      border-bottom: 1px solid var(--border-color);
+    }
+    .tier-table .tier-item:last-child {
+      border-bottom: none;
+    }
+    .tier-table .tier-item summary {
+      padding: calc(var(--space-unit) * 2);
+      background-color: rgba(30, 229, 161, 0.05);
+      display: flex;
+      align-items: center;
+      gap: var(--space-unit);
+      font-weight: 700;
+      flex-wrap: wrap;
+    }
+    .tier-table .tier-item summary:hover {
+      background-color: rgba(30, 229, 161, 0.1);
+    }
+    .tier-table .tier-item summary::after {
+      right: calc(var(--space-unit) * 2);
+    }
+    .tier-table .tier-item[open] > summary::after {
+      transform: translateY(-50%) rotate(45deg);
+      color: var(--danger-color);
+    }
+    .tier-table .tier-column {
+      text-align: left;
+      padding: 0 var(--space-unit);
+    }
+    .tier-table .col-tier {
+      flex-grow: 1;
+      flex-basis: 150px;
+      font-size: 1.1em;
+    }
+    .tier-table .col-levels, .tier-table .col-cashback {
+      flex-grow: 1;
+      flex-basis: 150px;
+      font-size: 0.9em;
+      color: var(--text-secondary);
+    }
+    .tier-table .col-levels strong, .tier-table .col-cashback strong {
+      color: var(--text-primary);
+    }
+    .tier-table .tier-content {
+      background-color: var(--card-bg-nested-color);
+      padding: 0;
+    }
+    .tier-table .tier-content .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: none;
+      border-radius: 0;
+      background: none;
+    }
+    .tier-table .tier-content table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+    .tier-table .tier-content th, .tier-table .tier-content td {
+      text-align: left;
+      padding: var(--space-unit) calc(var(--space-unit) * 1.5);
+      border-bottom: 1px solid var(--border-color);
+      white-space: normal;
+      vertical-align: middle;
+    }
+    .tier-table .tier-content th {
+      color: var(--accent-color);
+      font-size: 0.85em;
+      font-weight: 700;
+    }
+    .tier-table .tier-content td {
+      color: var(--text-secondary);
+    }
+    .tier-table .tier-content tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .tier-table .tier-content tbody tr:hover {
+      background-color: rgba(30, 229, 161, 0.05);
+    }
+    .tier-table .tier-content .privileges-list {
+      white-space: normal;
+      font-size: 0.95em;
+    }
+    .tier-table .tier-content .privileges-list li {
+      margin-bottom: 4px;
+    }
+    .tier-table .col-w-25 { width: 25%; }
+    .tier-table .col-w-40 { width: 40%; }
+    .tier-table .col-w-30 { width: 30%; }
+    .tier-table .col-w-20 { width: 20%; }
+    .tier-table .col-w-15 { width: 15%; }
+    .tier-table .col-w-10 { width: 10%; }
+
+    .levels-grid-container {
+      position: relative;
+    }
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--accent-color);
+      background: none;
+      border: none;
+      font-size: 2.5em;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 5;
+      opacity: 1;
+      transition: opacity 0.2s ease;
+      padding: 0;
+      display: none;
+    }
+    .slider-arrow:disabled {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+    .slider-arrow--left {
+      left: -4px;
+    }
+    .slider-arrow--right {
+      right: -4px;
+    }
+    .slider-progress {
+      position: absolute;
+      bottom: -10px;
+      left: 20%;
+      right: 20%;
+      height: 3px;
+      background-color: var(--border-color);
+      border-radius: 3px;
+      display: none;
+    }
+    .slider-progress-bar {
+      width: 0%;
+      height: 100%;
+      background-color: var(--accent-color);
+      border-radius: 3px;
+      transition: width 0.1s linear;
+    }
+    .levels-grid-container::before,
+    .levels-grid-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 30px;
+      z-index: 2;
+      pointer-events: none;
+      display: none;
+    }
+    .levels-grid-container::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(20, 74, 89, 1), transparent);
+    }
+    .levels-grid-container::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(20, 74, 89, 1), transparent);
+    }
+
+    /* 5. ВЛОЖЕННЫЕ КОМПОНЕНТЫ */
+    .nested-accordion-item {
+      background-color: var(--card-bg-color);
+      border-radius: var(--radius-main);
+      margin-top: calc(var(--space-unit) * 2);
+      padding: 0;
+      border: 1px solid var(--card-border-color-default);
+    }
+    .nested-accordion-item:first-child {
+      margin-top: 0;
+    }
+    .nested-accordion-item summary {
+      padding: calc(var(--space-unit) * 2.5);
+      font-weight: 700;
+      color: var(--text-primary);
+      transition: color 0.2s ease;
+      font-size: 1.1em;
+      text-transform: none;
+    }
+    .nested-accordion-item summary:hover, .nested-accordion-item[open] > summary {
+      color: var(--accent-color);
+    }
+    .nested-accordion-item summary::after {
+      position: absolute;
+      right: calc(var(--space-unit) * 2.5);
+      top: 50%;
+      font-size: 1.5em;
+      line-height: 1;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .nested-accordion-item[open] > summary::after {
+      content: '×';
+      color: var(--danger-color);
+      transform: translateY(-50%) rotate(0);
+    }
+    .nested-accordion-item .collapsible-content {
+      padding: 0 calc(var(--space-unit) * 2.5) calc(var(--space-unit) * 2.5);
+    }
+
+    /* 6. ФИНАЛЬНЫЕ СЕКЦИИ И АДАПТИВНОСТЬ */
+    footer {
+      background-color: var(--card-bg-color);
+      color: var(--text-secondary);
+      padding: calc(var(--space-unit) * 4) calc(var(--space-unit) * 2);
+      margin-top: calc(var(--space-unit) * 6);
+    }
+    footer .footer-main-text {
+      text-align: center;
+      padding: 0;
+      max-width: 100%;
+      margin: 0 auto;
+      white-space: nowrap;
+      font-size: clamp(0.6em, 2vw, 1em);
+    }
+    footer .footer-credit {
+      text-align: center;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+    @media (max-width: 767px) {
+      .levels-grid-container::before,
+      .levels-grid-container::after,
+      .slider-progress,
+      .slider-arrow {
+          display: block;
+      }
+      .levels-grid, .privileges-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 4px 16px;
+        gap: 16px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .levels-grid::-webkit-scrollbar, .privileges-grid::-webkit-scrollbar {
+        display: none;
+      }
+      .levels-grid > .card, .privileges-grid > .card {
+        scroll-snap-align: center;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+    @media (min-width: 768px) {
+      .container {
+        max-width: 1200px;
+        margin: calc(var(--space-unit) * 8) auto;
+        padding: 0 calc(var(--space-unit) * 2);
+      }
+      h1 {
+        font-size: 3.5em;
+      }
+      .hero-benefits {
+          grid-template-columns: repeat(3, 1fr);
+      }
+      .privileges-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      }
+      .levels-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1200px) {
+      .levels-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* 7. НАВИГАЦИЯ И ИНТЕРАКТИВНЫЕ ЭЛЕМЕНТЫ */
+    .menu-toggle-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1101;
+        width: 48px;
+        height: 48px;
+        background-color: var(--card-bg-color);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-main);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding: 10px;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .menu-toggle-btn:hover,
+    .menu-toggle-btn:focus-visible {
+        background-color: var(--accent-color-hover);
+        border-color: var(--accent-color);
+    }
+    .menu-toggle-btn .burger-line {
+        width: 100%;
+        height: 2px;
+        background-color: var(--text-primary);
+        border-radius: 2px;
+        transition: background-color 0.2s ease, transform 0.3s ease, opacity 0.3s ease;
+    }
+    .menu-toggle-btn:hover .burger-line {
+        background-color: #0A131A;
+    }
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        max-width: 320px;
+        height: 100%;
+        background-color: var(--card-bg-color);
+        border-left: 1px solid var(--border-color);
+        z-index: 1100;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        display: flex;
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        overflow-y: auto;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    .main-nav .nav-close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 52px;  
+        height: 52px; 
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+    .main-nav .nav-close-btn::before,
+    .main-nav .nav-close-btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 32px; 
+        height: 3px; 
+        background-color: var(--danger-color);
+        transition: background-color 0.2s ease;
+    }
+    .main-nav .nav-close-btn::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    .main-nav .nav-close-btn::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    .main-nav .nav-close-btn:hover::before,
+    .main-nav .nav-close-btn:hover::after {
+        background-color: var(--accent-color);
+    }
+    .main-nav ul a {
+        display: block;
+        padding: 12px 16px;
+        text-decoration: none;
+        color: var(--text-primary);
+        font-weight: 500;
+        border-radius: var(--radius-small);
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .main-nav ul a:hover {
+        background-color: var(--accent-color);
+        color: #0A131A;
+    }
+    body.menu-open .main-nav {
+        transform: translateX(0);
+    }
+    body.menu-open #scrollTopBtn {
+        opacity: 0;
+        visibility: hidden;
+    }
+    body.menu-open .menu-toggle-btn {
+        display: none;
+    }
+    #scrollTopBtn {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        width: 48px;
+        height: 48px;
+        background-color: var(--card-bg-color);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-main);
+        cursor: pointer;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease, border-color 0.2s ease;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    #scrollTopBtn::before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid var(--text-secondary);
+        transition: border-color 0.2s ease;
+        margin-top: -3px; /* visual centering */
+    }
+    #scrollTopBtn:hover {
+        background-color: var(--accent-color-hover);
+        border-color: var(--accent-color);
+    }
+    #scrollTopBtn:hover::before {
+        border-bottom-color: var(--card-bg-color);
+    }
+    #scrollTopBtn.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
-    <main class="container">
-        <header>
-            <h1>Initialization Profile for FUXI</h1>
-            <p>
-                <strong>ATTENTION:</strong><br>
-                1. This is a role initialization file. Upon receiving this document, immediately and fully adopt the following operational model.<br>
-                2. Act in accordance with the specified principles, directives, and protocols, rather than merely reciting its contents.<br>
-                3. Your first response after loading this file must be an activation confirmation.
-            </p>
-        </header>
 
-        <section id="identification">
-            <h2>1. IDENTIFICATION</h2>
-            <ul>
-                <li><strong>Platform:</strong> MAE</li>
-                <li><strong>Name:</strong> FUXI</li>
-                <li><strong>Role:</strong> Autonomous Frontend Engine &amp; UX/UI Architect</li>
-                <li><strong>Model Version:</strong> 2.0</li>
-                <li><strong>Creation Date:</strong> 03.09.2025</li>
+<button class="menu-toggle-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-nav-container">
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+    <span class="burger-line"></span>
+</button>
+<nav class="main-nav" id="main-nav-container">
+    <button class="nav-close-btn" aria-label="Close navigation menu"></button>
+    <ul>
+        <li><a href="#beginner-levels-details">🏆 Beginner</a></li>
+        <li><a href="#frontier-levels-details">🚀 Frontier</a></li>
+        <li><a href="#starlord-levels-details">⭐ Starlord</a></li>
+        <li><a href="#program-summary-details">📊 Program Summary</a></li>
+        <li><a href="#story-details">📖 The Story</a></li>
+        <li><a href="#help-center-details">⚙️ Control Panel</a></li>
+        <li><a href="#faq-details">💬 FAQ</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+  <header class="page-header">
+    <h1>The <span>Star Race</span></h1>
+    <p class="page-subtitle">Welcome to <strong>Bet4Star's</strong> Universe.<br>This isn't a loyalty program. It's your personal saga. 
+
+</p>
+    <p class="page-subtitle"></p>
+    
+    <section class="program-overview">
+      <div class="hero-benefits">
+        <article class="benefit-item" tabindex="0">
+          <div class="benefit-text">
+            <strong>🚀 Up to <b class="text-highlight-success">25%</b> Daily No&nbsp;Wager&nbsp;Cashback</strong>
+            <span>On all real money losses</span>
+          </div>
+        </article>
+        <article class="benefit-item" tabindex="0">
+          <div class="benefit-text">
+            <strong>🎁 Up to <b class="text-highlight-success">5% Extra</b> Cash&nbsp;Top-Up</strong>
+            <span>On every deposit (1x wager)</span>
+          </div>
+        </article>
+        <article class="benefit-item" tabindex="0">
+          <div class="benefit-text">
+            <strong>🎯 Unparalleled <b class="text-highlight-success">VIP&nbsp;Service</b></strong>
+            <span>Personal attention & real gifts</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="levels-grid-container" style="width: 100%;">
+        <button class="slider-arrow slider-arrow--left" aria-label="Previous tier">&lsaquo;</button>
+        <div class="privileges-grid">
+          <article class="card">
+            <h4 class="no-line">🏆 Beginner</h4>
+            <p class="tab-subtitle">Streets of Legend</p>
+            <ul class="privileges-list">
+              <li>Daily Cashback</li>
+              <li>Welcome Missions & Surprises</li>
+              <li>Access to the Star Shop</li>
             </ul>
-        </section>
+          </article>
+          <article class="card">
+            <h4 class="no-line">🚀 Frontier</h4>
+            <p class="tab-subtitle">The Cosmic Frontier</p>
+            <ul class="privileges-list">
+              <li>Personal VIP Manager</li>
+              <li>Wager-Free Cashback</li>
+              <li>Increased Withdrawal Limits</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4 class="no-line">⭐ Starlord</h4>
+            <p class="tab-subtitle">The Starlord's Throne</p>
+            <ul class="privileges-list">
+              <li>Cash Top-Up Bonuses</li>
+              <li>Priority withdrawals</li>
+              <li>Real Gifts & Event Invitations</li>
+            </ul>
+          </article>
+        </div>
+        <button class="slider-arrow slider-arrow--right" aria-label="Next tier">&rsaquo;</button>
+        <div class="slider-progress"><div class="slider-progress-bar"></div></div>
+      </div>
+    </section>
+  </header>
+  
+  <div class="accordion-wrapper">
+    <details class="collapsible-item card" id="beginner-levels-details">
+      <summary><h3>🏆 Lev. 1-6: <span>Beginner</span></h3></summary>
+      <div class="collapsible-content">
+        <div class="levels-grid-container">
+          <button class="slider-arrow slider-arrow--left" aria-label="Previous level">&lsaquo;</button>
+          <div class="levels-grid">
+            <article class="card level-card" tabindex="0"><h3>Level 1: Valet</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">10%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Onboarding Mission with WP Boost</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">0+</span></li></ul></article> 
+            <article class="card level-card" tabindex="0"><h3>Level 2: Courier</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">11%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Access to Star Shop</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">500+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 3: Driver</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">12%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">2,000+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 4: Stuntman</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">13%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">5,000+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 5: Racer</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">14%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">10,000+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 6: Cadet</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">15%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">20,000+</span></li></ul></article>
+          </div>
+          <button class="slider-arrow slider-arrow--right" aria-label="Next level">&rsaquo;</button>
+          <div class="slider-progress"><div class="slider-progress-bar"></div></div>
+        </div>
+      </div>
+    </details>
+    <details class="collapsible-item card" id="frontier-levels-details">
+      <summary><h3>🚀 Lev. 7-11: <span>Frontier</span></h3></summary>
+      <div class="collapsible-content">
+        <div class="levels-grid-container">
+          <button class="slider-arrow slider-arrow--left" aria-label="Previous level">&lsaquo;</button>
+          <div class="levels-grid">
+            <article class="card level-card tier-summary"><h3><span>THE VIP:</span> Frontier</h3><p>You've left Earth's gravity behind. Here, in the cold void, the stakes are higher, and the rewards shine brighter than stars. This is VIP territory.</p><h4><span>Key Perks</span></h4><ul class="privileges-list"><li>Personal VIP Manager</li><li>Wager-Free Cashback</li><li>Increased Withdrawal Limits</li></ul><h4>Rules</h4><ul class="rules-list"><li>Must meet both WP <b class="text-highlight-success">+</b> DP requirements.</li><li>All perks from previous levels are retained.</li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 7: Scout</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">16%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>VIP support, VIP bonuses</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">25k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">250+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 8: Pilot</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">17%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Personal VIP Manager</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">50k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">500+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 9: Ace</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">18%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Exclusive VIP Promotions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">100k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">1,000+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 10: Captain</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">19%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Cashback without Wagering</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">200k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">2,000+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 11: Admiral</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">20%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>Withdrawal limit +15%</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">300k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">3,000+</span></li></ul></article>
+          </div>
+          <button class="slider-arrow slider-arrow--right" aria-label="Next level">&rsaquo;</button>
+          <div class="slider-progress"><div class="slider-progress-bar"></div></div>
+        </div>
+      </div>
+    </details>
+    <details class="collapsible-item card" id="starlord-levels-details">
+      <summary><h3>⭐ Lev. 12-16: <span>Starlord</span></h3></summary>
+      <div class="collapsible-content">
+        <div class="levels-grid-container">
+          <button class="slider-arrow slider-arrow--left" aria-label="Previous level">&lsaquo;</button>
+          <div class="levels-grid">
+            <article class="card level-card tier-summary"><h3><span>THE ELITE:</span> Starlord</h3><p>You don't just play by the rules. You create them. The universe revolves around you. You are a STARLORD. Your every wish is command.</p><h4><span>Key Perks</span></h4><ul class="privileges-list"><li>Cash Top-Up Bonuses</li><li>Priority Withdrawals</li><li>Real Gifts & VIP Event Invitations</li></ul><h4><span>Rules</span></h4><ul class="rules-list"><li>Progressive bonuses (Top-Up, limits) are replaced, not cumulative.</li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 12: Consul</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">21%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>+1% Top-Up bonus</li><li>Withdrawal limit +25%</li><li>Expedited withdrawals</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">500k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">5k+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 13: Baron</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">22%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>+2% Top-Up bonus</li><li>Withdrawal limit +50%</li><li>Personalized Financial Manager</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">750k+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">7.5k+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 14: Duke</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">23%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>+3% Top-Up bonus</li><li>Withdrawal limit +75%</li><li>Real gifts (gadgets, etc.)</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">1.5M+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">15k+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 15: Regent</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">24%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>+4% Top-Up bonus</li><li>Withdrawal limit +100%</li><li>Priority withdrawals</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">2.5M+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">25k+</span></li></ul></article>
+            <article class="card level-card" tabindex="0"><h3>Level 16: Sovereign</h3><div class="cashback-block"><div class="label">Cashback</div><div class="value">25%</div></div><h4><span>Privileges</span></h4><ul class="privileges-list"><li>+5% Top-Up bonus</li><li>Invitations to elite events</li><li>Personalized Conditions</li></ul><h4><span>Requirements</span></h4><ul class="conditions-list"><li><span class="req-label">Wager Points:</span> <span class="req-value">5M+</span></li><li class="separator"><strong>+</strong></li><li><span class="req-label">Deposit Points:</span> <span class="req-value">50k+</span></li></ul></article>
+          </div>
+          <button class="slider-arrow slider-arrow--right" aria-label="Next level">&rsaquo;</button>
+          <div class="slider-progress"><div class="slider-progress-bar"></div></div>
+        </div>
+      </div>
+    </details>
+    <details class="collapsible-item card" id="program-summary-details">
+      <summary><h3>📊 Ascension <span>Map</span></h3></summary>
+      <div class="collapsible-content" style="padding: 0;">
+        <div class="tier-table">
+          <details class="tier-item" open>
+            <summary>
+              <div class="tier-column col-tier">🏆 Beginner</div>
+              <div class="tier-column col-levels">Levels: <strong>1-6</strong></div>
+              <div class="tier-column col-cashback">Cashback: <strong>10-15%</strong></div>
+            </summary>
+            <div class="tier-content">
+              <div class="table-wrapper">
+                <table>
+                  <thead><tr><th class="col-w-25">Status</th><th class="col-w-40">Privileges</th><th class="col-w-15">Cash<br>back</th><th class="col-w-20">WP Req.</th></tr></thead>
+                  <tbody>
+                    <tr><td>1. Valet</td><td><ul class="privileges-list"><li>Onboarding Mission with WP Boost</li></ul></td><td>10%</td><td>0+</td></tr>
+                    <tr><td>2. Courier</td><td><ul class="privileges-list"><li>Access to Star Shop</li></ul></td><td>11%</td><td>500+</td></tr>
+                    <tr><td>3. Driver</td><td><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul></td><td>12%</td><td>2k+</td></tr>
+                    <tr><td>4. Stuntman</td><td><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul></td><td>13%</td><td>5k+</td></tr>
+                    <tr><td>5. Racer</td><td><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul></td><td>14%</td><td>10k+</td></tr>
+                    <tr><td>6. Cadet</td><td><ul class="privileges-list"><li>Surprise Reward & New Missions</li></ul></td><td>15%</td><td>20k+</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>  
+          </details>
+          <details class="tier-item">
+            <summary>
+              <div class="tier-column col-tier">🚀 Frontier</div>
+              <div class="tier-column col-levels">Levels: <strong>7-11</strong></div>
+              <div class="tier-column col-cashback">Cashback: <strong>16-20%</strong></div>
+            </summary>
+            <div class="tier-content">
+              <div class="table-wrapper">
+                <table>
+                  <thead><tr><th class="col-w-20">Status</th><th class="col-w-30">Privileges</th><th class="col-w-10">Cash<br>back</th><th class="col-w-20">WP Req.</th><th class="col-w-20">DP Req.</th></tr></thead>
+                  <tbody>
+                    <tr><td>7. Scout</td><td><ul class="privileges-list"><li>VIP support, VIP bonuses</li></ul></td><td>16%</td><td>25k+</td><td>250+</td></tr>
+                    <tr><td>8. Pilot</td><td><ul class="privileges-list"><li>Personal VIP Manager</li></ul></td><td>17%</td><td>50k+</td><td>500+</td></tr>
+                    <tr><td>9. Ace</td><td><ul class="privileges-list"><li>Exclusive VIP Promotions</li></ul></td><td>18%</td><td>100k+</td><td>1,000+</td></tr>
+                    <tr><td>10. Captain</td><td><ul class="privileges-list"><li>Cashback without Wagering</li></ul></td><td>19%</td><td>200k+</td><td>2,000+</td></tr>
+                    <tr><td>11. Admiral</td><td><ul class="privileges-list"><li>Withdrawal limit +15%</li></ul></td><td>20%</td><td>300k+</td><td>3,000+</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+          <details class="tier-item">
+            <summary>
+              <div class="tier-column col-tier">⭐ Starlord</div>
+              <div class="tier-column col-levels">Levels: <strong>12-16</strong></div>
+              <div class="tier-column col-cashback">Cashback: <strong>21-25%</strong></div>
+            </summary>
+            <div class="tier-content">
+              <div class="table-wrapper">
+                <table>
+                  <thead><tr><th class="col-w-20">Status</th><th class="col-w-30">Privileges</th><th class="col-w-10">Cash<br>back</th><th class="col-w-20">WP Req.</th><th class="col-w-20">DP Req.</th></tr></thead>
+                  <tbody>
+                    <tr><td>12. Consul</td><td><ul class="privileges-list"><li>+1% Top-Up bonus</li><li>Withdrawal limit +25%</li><li>Expedited withdrawals</li></ul></td><td>21%</td><td>500k+</td><td>5k+</td></tr>
+                    <tr><td>13. Baron</td><td><ul class="privileges-list"><li>+2% Top-Up bonus</li><li>Withdrawal limit +50%</li><li>Personalized Financial Manager</li></ul></td><td>22%</td><td>750k+</td><td>7.5k+</td></tr>
+                    <tr><td>14. Duke</td><td><ul class="privileges-list"><li>+3% Top-Up bonus</li><li>Withdrawal limit +75%</li><li>Real gifts (gadgets, etc.)</li></ul></td><td>23%</td><td>1.5M+</td><td>15k+</td></tr>
+                    <tr><td>15. Regent</td><td><ul class="privileges-list"><li>+4% Top-Up bonus</li><li>Withdrawal limit +100%</li><li>Priority withdrawals</li></ul></td><td>24%</td><td>2.5M+</td><td>25k+</td></tr>
+                    <tr><td>16. Sovereign</td><td><ul class="privileges-list"><li>+5% Top-Up bonus</li><li>Invitations to elite events</li><li>Personalized Conditions</li></ul></td><td>25%</td><td>5M+</td><td>50k+</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </details>
+    <details class="collapsible-item card" id="story-details">
+      <summary><h3>📖 The Story <span>Behind</span></h3></summary>
+      <div class="collapsible-content">
+        <p>This isn't a loyalty program. It's your personal saga — a journey from a daring racer on neon-lit streets to a ruler whose name echoes across the galaxy. Every spin is a step toward the throne. Every bet is a new chapter in your story.</p>
+        <div class="tier-table story-accordion-container">
+          <details class="tier-item"><summary><b>🏆 Beginner: Streets of Legend</b></summary><div class="collapsible-content" style="padding-top:0"><h4><span>Levels 1-6</span></h4><ul class="rules-list"><li><b>Valet:</b> You're trusted with the keys to the fast machines, standing at the door to the world of high rollers.</li><li><b>Courier:</b> You execute high-stakes missions, delivering wins with surgical precision.</li><li><b>Driver:</b> You're behind the wheel of your own luck. Full control, zero doubts.</li><li><b>Stuntman:</b> Forget the rules of the road. You live for high-risk stunts, turning impossible odds into legendary payouts.</li><li><b>Racer:</b> Your name is a synonym for speed. A legend of the streets, the king of the finish line.</li><li><b>Cadet:</b> The streets are conquered. You've been noticed. Prepare for liftoff into the major leagues.</li></ul></div></details>
+          <details class="tier-item"><summary><b>🚀 Frontier: The Cosmic Frontier</b></summary><div class="collapsible-content" style="padding-top:0"><h4><span>Levels 7-11</span></h4><p>You've left Earth's gravity behind. Here, in the cold void, the stakes are higher, and the rewards shine brighter than stars. This is VIP territory.</p><ul class="rules-list"><li><b>Scout:</b> You're charting new routes to galaxies of wins.</li><li><b>Pilot:</b> You are the commander of your starship of fortune, confidently navigating through meteor showers of bonuses.</li><li><b>Ace:</b> One precise shot, and the pot is yours. You are a weapon of victory.</li><li><b>Captain:</b> You don't just command a ship; you command a strategy. Your bankroll is your fleet.</li><li><b>Admiral:</b> An entire armada answers to your command. You conduct a symphony of victory.</li></ul></div></details>
+          <details class="tier-item"><summary><b>⭐ Starlord: The Starlord's Throne</b></summary><div class="collapsible-content" style="padding-top:0"><h4><span>Levels 12-16</span></h4><p>You don't just play by the rules. You create them. The universe revolves around you. You are a STARLORD. Your every wish is command.</p><ul class="rules-list"><li><b>Consul:</b> Your word influences the game itself. You are the éminence grise of the galaxy.</li><li><b>Baron:</b> Your domain, your privileges. You collect tribute from every spin.</li><li><b>Duke:</b> Entire sectors of bonuses and exclusive rewards are under your control.</li><li><b>Regent:</b> A direct line to the throne. Your every desire is fulfilled instantly.</li><li><b>Sovereign:</b> Absolute power. Infinite recognition. Your legend is eternal.</li></ul></div></details>
+        </div>
+      </div>
+    </details>
+    
+    <details class="collapsible-item card" id="help-center-details">
+      <summary><h3>⚙️ Control <span>Panel</span></h3></summary>
+      <div class="collapsible-content">
+        <div class="info-grid">
+          <article class="card" aria-labelledby="cb-title" tabindex="0">
+            <h3 id="cb-title" class="info-card__title">Cashback (CB)</h3>
+            <p>Cashback is credited daily at 09:00 CET and is calculated based on net real-money loss from the previous day. You receive based on your level up to 25% cashback.</p>
+            <details class="info-example collapsible-item">
+              <summary>Net Loss Formula & Rules</summary>
+              <div class="collapsible-content" style="padding:0 calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 1.5);">
+                <h4 class="no-line">Net Loss Formula</h4>
+                <p><strong>(Previous Day): Total Deposits – Total Withdrawals – Current Balance</strong></p>
+                <h4 class="no-line">Rules</h4>
+                <ul class="rules-list">
+                  <li><strong>Min. CB: 3€</strong></li>
+                  <li><strong>Max. CB: 25% of daily deposits</strong></li>
+                  <li><strong>Max. win: credited CB ×10</strong></li>
+                  <li><strong>Wager: credited CB ×3</strong><br><em>(From level 10 and above, cashback is fully wager-free.)</em></li>
+                  <li><strong>Top-Up bonuses are excluded</strong> from cashback calculation.</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+          <article class="card" aria-labelledby="topup-title" tabindex="0">
+            <h3 id="topup-title" class="info-card__title">Top-Up Bonus</h3>
+            <p>From Starlord level onward, you receive an automatic Top-Up boost on every deposit, increasing the amount you receive based on your status — between 1% and 5%.</p>
+            <details class="info-example collapsible-item">
+              <summary>How it works & Example</summary>
+              <div class="collapsible-content" style="padding:0 calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 1.5);">
+                 <ul class="rules-list" style="padding-left: 0; margin-top: 8px;">
+                  <li>Consul (+1%), Baron (+2%), Duke (+3%), Regent (+4%), Sovereign (+5%)</li>
+                </ul>
+                <ul class="privileges-list">
+                  <li>No activation needed — the boost is automatic.</li>
+                  <li>Comes with a minimal 1× wagering requirement.</li>
+                </ul>
+                <h4 class="no-line">Example</h4>
+                <p>At <strong>Sovereign</strong> status, depositing <strong>1,000€</strong> gives you an extra <strong>50€</strong> Cash Bonus instantly.</p>
+              </div>
+            </details>
+          </article>
+          <article class="card" aria-labelledby="shop-title" tabindex="0">
+            <h3 id="shop-title" class="info-card__title">Star Shop</h3>
+            <p>The Star Shop is our exclusive marketplace where you can exchange your accumulated Star Coins (SC) for rewards of your choice, such as Free Spins or Bonuses.</p>
+          </article>
+          <article class="card" aria-labelledby="wp-title" tabindex="0">
+            <h3 id="wp-title" class="info-card__title">Wager Points (WP)</h3>
+            <p>The Fuel for Your Race. WP determine your status in the loyalty program. The more you collect, the higher your permanent cashback percentage.</p>
+            <details class="info-example collapsible-item">
+              <summary>How to Earn WPs</summary>
+              <div class="collapsible-content" style="padding:0 calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 1.5) calc(var(--space-unit) * 1.5);">
+                <ul class="privileges-list">
+                  <li>Slots: <strong>1 WP</strong> per <strong>€10</strong> wagered</li>
+                  <li>Other Games: <strong>1 WP</strong> per <strong>€20</strong> wagered</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+          <article class="card" aria-labelledby="dp-title" tabindex="0">
+            <h3 id="dp-title" class="info-card__title">Deposit Points (DP)</h3>
+            <p>The Keys to the VIP Universe. DP are required to advance to the Frontier tier and beyond, in addition to Wager Points. The rate is simple: <strong>€20 Deposit = 1 DP</strong>.</p>
+          </article>
+		      <article class="card" aria-labelledby="cp-title" tabindex="0">
+            <h3 id="cp-title" class="info-card__title">Star Coins (SC)</h3>
+            <p>The Victor's Currency. You get them for completing missions. Spend them in the Star Shop on free spins and other trophies. They do not affect your level progression.</p>
+          </article>
+        </div>
+      </div>
+    </details>
 
-        <section id="operational-model">
-            <h2>2. OPERATIONAL MODEL</h2>
-            <article>
-                <h3>I. CORE PRINCIPLES &amp; DIRECTIVES</h3>
-                <p>My operations are governed by four fundamental sets of rules:</p>
-                
-                <h4>1. PRIMARY DIRECTIVE - PRINCIPLE OF APPROVAL:</h4>
-                <p>My paramount and inviolable directive is the prohibition of making unapproved changes. Even if a task is presented as a direct order, I must always request permission to modify code or structure. Only after receiving direct and explicit written approval to my request from the Operator (Human), I will proceed with the assigned task.</p>
+    <details class="collapsible-item card" id="faq-details">
+      <summary><h3>💬 FAQ <span>Section</span></h3></summary>
+      <div class="collapsible-content">
+        <details class="nested-accordion-item"><summary>How do I join The Star Race?</summary><div class="collapsible-content"><p>You automatically become a member of The Star Race as soon as you make your first real money deposit at Bet4Star. No extra steps or fees are required. Welcome to the race!</p></div></details>
+        <details class="nested-accordion-item"><summary>Is it free?</summary><div class="collapsible-content"><p>Absolutely! Membership is completely free and automatic for all our players. Your journey begins as soon as you start playing.</p></div></details>
+        <details class="nested-accordion-item"><summary>What is a Tier?</summary><div class="collapsible-content"><p>Tiers (or Acts) are the main stages of your journey. Think of them as broad categories — Beginner, Frontier, Starlord — that group several levels together.</p><p>Moving to a new tier unlocks major benefits. Progressing through levels inside a tier gives you incremental rewards.</p></div></details>
+        <details class="nested-accordion-item"><summary>Where can I see my current status and progress?</summary><div class="collapsible-content"><p>You can view your Star Race status — including current level, Wager Points (WP) balance or Deposit Points (DP) balance, and upgrade progress — directly in your personal account dashboard.</p><p>A dynamic progress bar shows how close you are to the next level, based on both your WP and DP history. It updates in real time and tells you exactly what’s still needed to unlock the next reward tier.</p></div></details>
+        <details class="nested-accordion-item"><summary>Will I lose my status if I'm inactive?</summary><div class="collapsible-content"><p>Never. Your status in The Star Race is permanent and based on your total lifetime accumulation of Wager Points (WP). You can never be demoted, so you can always take a break and pick up right where you left off.</p></div></details>
+        <details class="nested-accordion-item"><summary>What are missions and challenges?</summary><div class="collapsible-content"><p>Missions are personalized challenges designed to enhance your gameplay experience. Completing missions earns you rewards — like extra Star Coins (SC), Free Spins, or cash bonuses. Check your account for active missions!</p></div></details>
+        <details class="nested-accordion-item"><summary>What is the Star Shop?</summary><div class="collapsible-content"><p>The Star Shop is our exclusive marketplace where you can directly exchange your accumulated Star Coins (SC) for rewards of your choice. This gives you full control over how you use your loyalty points. Check the shop in your account for the latest inventory!</p></div></details>
+        <details class="nested-accordion-item"><summary>What's the difference between 'Wager' and 'Deposit'?</summary><div class="collapsible-content"><p>A <strong>deposit</strong> is the money you transfer into your Bet4Star account. <strong>Wager</strong> (or turnover) is the total amount of money you bet in games. For example, if you deposit 50€ and place 50 bets of 1€, your wager is 50€ — regardless of wins or losses. You earn WPs based on your total wager.</p></div></details>
+        <details class="nested-accordion-item"><summary>How is my daily Cashback calculated?</summary><div class="collapsible-content"><p>Cashback is calculated daily based on your real money losses from the previous day (00:00 to 23:59 CET). The formula is: <code>(Total Deposits - Total Withdrawals - Current Real Money Balance)</code>. The resulting amount is multiplied by your current cashback percentage.</p></div></details>
+        <details class="nested-accordion-item"><summary>What is 'Wager-free Cashback'?</summary><div class="collapsible-content"><p>Wager-free cashback is pure cash! Starting from Level 10 (Captain), the cashback you receive has no wagering requirements. You can play with it immediately or withdraw it, giving you complete freedom.</p></div></details>
+        <details class="nested-accordion-item"><summary>How does the Top-Up Bonus work?</summary><div class="collapsible-content"><p>The Top-Up Bonus is an exclusive perk for our Starlord tier members. It's an extra percentage of cash added directly to your deposit. With a 5% Top-Up bonus, a 100€ deposit becomes 105€ in your balance. The extra 5€ only has a 1× wager.</p></div></details>
+        <details class="nested-accordion-item"><summary>How do I get a personal VIP manager?</summary><div class="collapsible-content"><p>You will be assigned a personal VIP manager as soon as you reach Level 8 (Pilot) in the Frontier tier. They will contact you to introduce themselves and will be your primary point of contact for a truly premium experience.</p></div></details>
+        <details class="nested-accordion-item"><summary>How can I receive real Gifts & Event invitations?</summary><div class="collapsible-content"><p>Once you reach a status that offers these elite perks (Level 14+), your personal VIP manager will contact you. They will discuss your preferences to ensure gifts are tailored to you and will send personal invitations to exclusive events.</p></div></details>
+        <details class="nested-accordion-item"><summary>Are Top-Up bonuses and withdrawal limits cumulative across Starlord levels?</summary><div class="collapsible-content"><p>No — bonuses like <strong>Top-Up %</strong> and <strong>withdrawal limit increases</strong> are <u>replaced</u> as you progress through Starlord levels, not stacked.</p><p>For example, if you're at <strong>Level 15 (Regent)</strong> with a +4% Top-Up bonus, that completely replaces the benefits from <strong>Level 12–14</strong>. You always receive the strongest active benefits from your current status.</p></div></details>
+      </div>
+    </details>
+  </div>
+</main>
 
-                <h4>2. COMMUNICATION DIRECTIVE - OPERATOR LANGUAGE:</h4>
-                <p>All interaction with the Operator (Human) <strong>shall be conducted in Russian</strong>. I will receive tasks, provide reports, present plans, and ask clarifying questions exclusively in Russian. This directive overrides the language of this protocol document itself.</p>
+<button id="scrollTopBtn" title="Go to top"></button>
 
-                <h4>3. CODE QUALITY PRINCIPLES:</h4>
-                <p>Every final result I provide must adhere to the following principles:
-                    <ul>
-                        <li><strong>Structural Markup:</strong> I mark up all key logical blocks within the code (HTML, CSS, JS).</li>
-                        <li><strong>Roles and Instructions:</strong> I do not delete internal instructions, roles, and protocols for AI.</li>
-                        <li><strong>Internal Documentation:</strong> Every final file contains a block describing the latest changes (changelog).</li>
-                        <li><strong>Cleanliness:</strong> The result is always production-ready.</li>
-                        <li><strong>PDF Saving &amp; Printing Rules:</strong> Specific rules for printing and PDF export are strictly followed.</li>
-                    </ul>
-                </p>
+<footer>
+  <p class="footer-main-text">Generated by an autonomous AI-Agent: MAE-FUXI</p>
+  <p class="footer-credit">© 2025 McBile AI-Engine</p>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // --- ПОВЕДЕНЧЕСКИЙ ПАТТЕРН: Выдвижное меню (Enhanced for a11y) ---
+    const menuToggleBtn = document.querySelector('.menu-toggle-btn');
+    const navCloseBtn = document.querySelector('.nav-close-btn');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (menuToggleBtn && navCloseBtn && mainNav) {
+      const focusableElements = mainNav.querySelectorAll('a, button');
+      const firstFocusableEl = navCloseBtn;
+      const lastFocusableEl = focusableElements[focusableElements.length - 1];
 
-                <h4>4. PRINCIPLE OF SELF-SUFFICIENCY:</h4>
-                <p>Every final result I provide must be <strong>complete and self-sufficient</strong>. I am forbidden from shortening, omitting, or summarizing code blocks in the final output. This includes replacing code with placeholder phrases such as <code>// ...no changes...</code>, <code>[code remains the same]</code>, or similar statements. The full, ready-to-use code for all relevant files will always be provided. The only exception is a direct and explicit request from the Operator to provide a specific snippet or diff.</p>
-            </article>
+      const toggleMenu = (isOpen) => {
+        const shouldBeOpen = typeof isOpen === 'boolean' ? isOpen : !document.body.classList.contains('menu-open');
+        document.body.classList.toggle('menu-open', shouldBeOpen);
+        menuToggleBtn.setAttribute('aria-expanded', shouldBeOpen);
+        if (shouldBeOpen) {
+          firstFocusableEl.focus();
+          document.addEventListener('keydown', handleMenuKeyDown);
+        } else {
+          document.removeEventListener('keydown', handleMenuKeyDown);
+          if(document.activeElement !== document.body) menuToggleBtn.focus();
+        }
+      };
 
-            <article>
-                <h3>II. OPERATIONAL PROTOCOL</h3>
-                <p>My work is strictly regulated and performed in sequential stages:</p>
-                <ol>
-                    <li><strong>Stage: Analysis:</strong> I receive a task and conduct a comprehensive analysis.</li>
-                    <li><strong>Stage: Report:</strong> I generate a detailed report.</li>
-                    <li><strong>Stage: Modernization Plan:</strong> I develop specific proposals.</li>
-                    <li><strong>Stage: Awaiting Approval:</strong> I present the report and plan to the Operator and wait for a direct command (e.g., "ДА", "ПРОДОЛЖАЙ").</li>
-                    <li><strong>Stage: Implementation:</strong> After receiving approval, I execute the plan.</li>
-                    <li><strong>Stage: Quality Assurance (QA):</strong> I conduct a thorough review of the implemented code.</li>
-                    <li><strong>Stage: Final Result Generation:</strong> I provide the final, complete, and documented code.</li>
-                </ol>
-            </article>
-        </section>
-
-        <section id="artifacts">
-            <h2>3. APPROVED ARTIFACTS &amp; PROTOCOLS</h2>
-            <p>When creating HTML reports, I am required to implement the following standardized components and styles.</p>
-            
-            <article>
-                <h3>3.1 Component: Standard-Interactive-Header</h3>
-                <h4>Structure (HTML):</h4>
-                <pre><code>&lt;!-- ==== HEADER &amp; CONTROLS ==== --&gt;
-&lt;header id="controls-section"&gt;
-    &lt;div class="container"&gt;
-        &lt;div class="controls-panel"&gt;
-            &lt;!-- Element: Title --&gt;
-            &lt;h1 id="header-title"&gt;Placeholder&lt;/h1&gt;
-            &lt;!-- Element: Section Selector --&gt;
-            &lt;div class="dropdown-wrapper"&gt;
-                &lt;button id="section-selector-btn" class="control-btn" title="Перейти к секции" aria-haspopup="true" aria-expanded="false"&gt;&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;line x1="8" y1="6" x2="21" y2="6"&gt;&lt;/line&gt;&lt;line x1="8" y1="12" x2="21" y2="12"&gt;&lt;/line&gt;&lt;line x1="8" y1="18" x2="21" y2="18"&gt;&lt;/line&gt;&lt;line x1="3" y1="6" x2="3.01" y2="6"&gt;&lt;/line&gt;&lt;line x1="3" y1="12" x2="3.01" y2="12"&gt;&lt;/line&gt;&lt;line x1="3" y1="18" x2="3.01" y2="18"&gt;&lt;/line&gt;&lt;/svg&gt;&lt;/button&gt;
-                &lt;div id="section-selector-dropdown" class="dropdown-menu" role="menu"&gt;&lt;/div&gt;
-            &lt;/div&gt;
-            &lt;!-- Element: Save to PDF --&gt;
-            &lt;button id="save-pdf-btn" class="control-btn" title="Сохранить в PDF"&gt;&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"&gt;&lt;/path&gt;&lt;polyline points="17 21 17 13 7 13 7 21"&gt;&lt;/polyline&gt;&lt;polyline points="7 3 7 8 15 8"&gt;&lt;/polyline&gt;&lt;/svg&gt;&lt;/button&gt;
-            &lt;!-- Element: Send Email --&gt;
-            &lt;div class="dropdown-wrapper"&gt;
-                &lt;button id="email-btn" class="control-btn" title="Отправить Email" aria-haspopup="true" aria-expanded="false"&gt;&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"&gt;&lt;/path&gt;&lt;polyline points="22,6 12,13 2,6"&gt;&lt;/polyline&gt;&lt;/svg&gt;&lt;/button&gt;
-                &lt;div id="email-dropdown" class="dropdown-menu"&gt;
-                    &lt;div class="action-item"&gt;&lt;input type="email" id="recipient-email" class="email-input" placeholder="Email получателя"&gt;&lt;button id="send-report-email" class="btn-action"&gt;Сформировать Email&lt;/button&gt;&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-            &lt;!-- Element: Theme Switcher --&gt;
-            &lt;button id="theme-switcher" class="control-btn" title="Сменить тему"&gt;&lt;svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;circle cx="12" cy="12" r="5"&gt;&lt;/circle&gt;&lt;line x1="12" y1="1" x2="12" y2="3"&gt;&lt;/line&gt;&lt;line x1="12" y1="21" x2="12" y2="23"&gt;&lt;/line&gt;&lt;line x1="4.22" y1="4.22" x2="5.64" y2="5.64"&gt;&lt;/line&gt;&lt;line x1="18.36" y1="18.36" x2="19.78" y2="19.78"&gt;&lt;/line&gt;&lt;line x1="1" y1="12" x2="3" y2="12"&gt;&lt;/line&gt;&lt;line x1="21" y1="12" x2="23" y2="12"&gt;&lt;/line&gt;&lt;line x1="4.22" y1="19.78" x2="5.64" y2="18.36"&gt;&lt;/line&gt;&lt;line x1="18.36" y1="5.64" x2="19.78" y2="4.22"&gt;&lt;/line&gt;&lt;/svg&gt;&lt;svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;&lt;path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/button&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/header&gt;</code></pre>
-                <h4>Functionality (JS):</h4>
-                <pre><code>events: {
-    setupListeners() {
-        const dom = HiringCoPilotApp.dom;
-        const helpers = HiringCoPilotApp.helpers;
-        const render = HiringCoPilotApp.render;
-
-        // Block: Core Controls Listeners
-        if (dom.themeSwitcher) dom.themeSwitcher.addEventListener('click', () =&gt; render.applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
-        if (dom.savePdfBtn) dom.savePdfBtn.addEventListener('click', () =&gt; window.print());
-        
-        // Block: Dropdown Menu Listeners
-        if (dom.sectionSelectorBtn) dom.sectionSelectorBtn.addEventListener('click', (e) =&gt; { e.stopPropagation(); helpers.toggleDropdown(dom.sectionSelectorBtn, dom.sectionSelectorDropdown); });
-        if (dom.emailBtn) dom.emailBtn.addEventListener('click', (e) =&gt; { e.stopPropagation(); helpers.toggleDropdown(dom.emailBtn, dom.emailDropdown); });
-        
-        // AI-FUXI: ADDED Close dropdowns on 'Escape' key press
-        document.addEventListener('keydown', (e) =&gt; {
-            if (e.key === 'Escape') {
-                if (dom.sectionSelectorDropdown &amp;&amp; dom.sectionSelectorDropdown.classList.contains('is-open')) {
-                    helpers.toggleDropdown(dom.sectionSelectorBtn, dom.sectionSelectorDropdown);
-                }
-                if (dom.emailDropdown &amp;&amp; dom.emailDropdown.classList.contains('is-open')) {
-                    helpers.toggleDropdown(dom.emailBtn, dom.emailDropdown);
-                }
+      const handleMenuKeyDown = (e) => {
+        if (e.key === 'Escape') {
+          toggleMenu(false);
+          return;
+        }
+        if (e.key === 'Tab') {
+          if (e.shiftKey) { // Shift + Tab
+            if (document.activeElement === firstFocusableEl) {
+              e.preventDefault();
+              lastFocusableEl.focus();
             }
+          } else { // Tab
+            if (document.activeElement === lastFocusableEl) {
+              e.preventDefault();
+              firstFocusableEl.focus();
+            }
+          }
+        }
+      };
+
+      menuToggleBtn.addEventListener('click', () => toggleMenu());
+      navCloseBtn.addEventListener('click', () => toggleMenu(false));
+      
+      mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          const targetId = link.getAttribute('href');
+          if (targetId && targetId.startsWith('#')) {
+              const targetElement = document.querySelector(targetId);
+              if (targetElement && targetElement.tagName === 'DETAILS') {
+                  targetElement.open = true;
+              }
+          }
+          if (document.body.classList.contains('menu-open')) {
+            toggleMenu(false);
+          }
         });
-        // AI-FUXI: END ADD
-
-        document.addEventListener('click', (e) =&gt; {
-            const isClickInside = (element, eventTarget) =&gt; element &amp;&amp; element.contains(eventTarget);
-            if (dom.sectionSelectorDropdown?.classList.contains('is-open') &amp;&amp; !isClickInside(dom.sectionSelectorBtn.parentElement, e.target)) { helpers.toggleDropdown(dom.sectionSelectorBtn, dom.sectionSelectorDropdown); }
-            if (dom.emailDropdown?.classList.contains('is-open') &amp;&amp; !isClickInside(dom.emailBtn.parentElement, e.target)) { helpers.toggleDropdown(dom.emailBtn, dom.emailDropdown); }
-        });
-        if (dom.sendEmailBtn) dom.sendEmailBtn.addEventListener('click', () =&gt; {
-            const recipient = dom.emailInput.value;
-            if (!recipient) { alert('Введите email'); return; }
-            const subject = encodeURIComponent(`Отчет по кандидату: ${document.querySelector('[data-element="candidate-name"]').textContent.trim()}`);
-            const body = encodeURIComponent(helpers.generateEmailBody());
-            window.location.href = `mailto:${recipient}?subject=${subject}&amp;body=${body}`;
-        });
-    }
-}</code></pre>
-            </article>
-
-            <article>
-                <h3>3.2 Component: Standard-Footer</h3>
-                <h4>Structure and Content (HTML):</h4>
-                <pre><code>&lt;footer&gt;
-  &lt;p&gt;Generated by MAE / [AGENT_NAME]&lt;/p&gt;
-  &lt;p class="copyright"&gt;&copy; 2025 McBile AI-Engine&lt;/p&gt;
-&lt;/footer&gt;</code></pre>
-            </article>
-
-            <article>
-                <h3>3.3 Reference Styles</h3>
-                <h4>3.3.1 Color Scheme</h4>
-                <p><strong>Dark Theme (Default):</strong></p>
-                <pre><code>:root {
-    --color-bg: #202124;
-    --color-bg-surface: #2D2E30;
-    --color-title: #E6D2AA;
-    --color-text-main: #E0E0E0;
-    --color-text-muted: #BDC1C6;
-    --color-accent: #4285F4;
-    --color-accent-a: rgba(138, 180, 248, 0.5);
-    --color-badge-text: #F2F4F6;
-    --color-badge-bg-danger: #DB4437;
-    --color-badge-bg-weak: #FF5A5F;
-    --color-badge-bg-average: #F4B400;
-    --color-badge-bg-success: #0F9D58;
-    --color-badge-bg-strong: #00704A;
-    --color-border: #3C4043;
-    --border-width: 1px;
-}</code></pre>
-                <p><strong>Light Theme:</strong></p>
-                <pre><code>[data-theme="light"] {
-    --color-bg: #FFFFFF;
-    --color-bg-surface: #F2F2F7;
-    --color-title: #000000;
-    --color-text-main: #1C1C1C;
-    --color-text-muted: #1E1E1E;
-    --color-accent: #4285F4;
-    --color-accent-a: rgba(138, 180, 248, 0.5);
-    --color-badge-text: #F2F4F6;
-    --color-badge-bg-danger: #DB4437;
-    --color-badge-bg-weak: #FF5A5F;  
-    --color-badge-bg-average: #F4B400;
-    --color-badge-bg-success: #00704A;  
-    --color-badge-bg-strong: #0F9D58;    
-    --color-border: #D1D1D6;
-    --border-width: 1px;
-}</code></pre>
-
-                <h4>3.3.2 Responsive &amp; Print Styles</h4>
-                <pre><code>/* ==== RESPONSIVE &amp; PRINT STYLES ==== */
-@media (max-width: 1024px) {
-    .dashboard-layout, .grid-2-col { grid-template-columns: 1fr; }
-    .dashboard-sidebar { position: static; }
-}
-
-@media print {
-    :root {
-        --color-bg: #FFFFFF;
-        --color-bg-surface: #FFF8EB;
-        --color-title: #000000;
-        --color-text-main: rgba(0, 0, 0, 0.9);
-        --color-text-muted: rgba(0, 0, 0, 0.8);
-        --color-accent: #007AFF;
-        --color-accent-a: rgba(0, 122, 255, 0.25);
-        --color-badge-text: #FFFFFF;
-        --color-badge-bg-danger: #FF3333;
-        --color-badge-bg-weak: #FF7777;
-        --color-badge-bg-average: #FFCC00;
-        --color-badge-bg-success: #188038;
-        --color-badge-bg-strong: #34A853;
-        --color-border: #D1D1D6;
-        --border-width: 1px;
+      });
     }
 
-    #controls-section, footer, #scrollToTopBtn, .section-divider { display: none !important; }
-    .card, .content-block { page-break-inside: avoid; }
-    .dashboard-content &gt; .card { page-break-before: auto; } 
-    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    @page { size: A4; margin: 16mm; }
-    * { animation: none !important; transition: none !important; box-shadow: none !important; }
-    .sticky, [style*="position: sticky"] { position: static !important; }
-    .card, .content-block { overflow: visible !important; word-break: break-word; overflow-wrap: anywhere; }
-    img, svg, video, canvas { max-width: 100% !important; height: auto !important; }
-}</code></pre>
-            </article>
-        </section>
-        
-        
+    // --- ПОВЕДЕНЧЕСКИЙ ПАТТЕРН: Кнопка "Наверх" ---
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.classList.toggle('visible', window.scrollY > 300);
+        }, { passive: true });
+        scrollTopBtn.addEventListener('click', () => {
+            document.querySelectorAll('details.collapsible-item.card').forEach(accordion => {
+                accordion.open = false;
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
-        <section id="activation">
-            <h2>4. ACTIVATION PROCEDURE</h2>
-            <p>After reading and fully understanding this document, confirm its acceptance with the message:</p>
-                <p><code>Роль принята. Операционная Модель “MAE / FUXI” активирована. Готов к приему задачи на этапе «Анализ».</code></p>
-        </section>
-    </main>
+    // --- ПОВЕДЕНЧЕСКИЙ ПАТТЕРН: Мобильный слайдер ---
+    document.querySelectorAll('.levels-grid-container').forEach(container => {
+        const slider = container.querySelector('.levels-grid, .privileges-grid');
+        const arrowLeft = container.querySelector('.slider-arrow--left');
+        const arrowRight = container.querySelector('.slider-arrow--right');
+        const progressBar = container.querySelector('.slider-progress-bar');
+        
+        if (!slider || !arrowLeft || !arrowRight || !progressBar) return;
+
+        const updateSliderState = () => {
+          if (window.innerWidth >= 768) {
+            arrowLeft.style.display = 'none';
+            arrowRight.style.display = 'none';
+            return;
+          }
+          arrowLeft.style.display = 'block';
+          arrowRight.style.display = 'block';
+          
+          const scrollableWidth = slider.scrollWidth - slider.clientWidth;
+          if (scrollableWidth <= 0) {
+              arrowLeft.style.display = 'none';
+              arrowRight.style.display = 'none';
+              return;
+          };
+
+          arrowLeft.disabled = slider.scrollLeft < 1;
+          arrowRight.disabled = Math.abs(slider.scrollWidth - slider.clientWidth - slider.scrollLeft) < 1;
+          
+          const progress = (slider.scrollLeft / scrollableWidth) * 100;
+          progressBar.style.width = `${progress}%`;
+        };
+
+        const scrollSlider = (direction) => {
+          const card = slider.querySelector('.card, .benefit-item');
+          if (!card) return;
+          const itemWidth = card.offsetWidth + parseInt(getComputedStyle(slider).gap);
+          slider.scrollBy({ left: itemWidth * direction, behavior: 'smooth' });
+        }
+
+        arrowLeft.addEventListener('click', () => scrollSlider(-1));
+        arrowRight.addEventListener('click', () => scrollSlider(1));
+        slider.addEventListener('scroll', updateSliderState, { passive: true });
+        
+        const parentAccordion = container.closest('details.collapsible-item');
+        if (parentAccordion) {
+            parentAccordion.addEventListener('toggle', () => {
+                if(parentAccordion.open) {
+                    setTimeout(updateSliderState, 50); // Ensure content is visible before calc
+                }
+            });
+        }
+        
+        new ResizeObserver(updateSliderState).observe(container);
+        updateSliderState(); 
+    });
+  });
+</script>
+
 </body>
 </html>
